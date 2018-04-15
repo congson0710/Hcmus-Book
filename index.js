@@ -1,8 +1,11 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const mongoose = require('mongoose');
+const keys = require('./config/key');
+const app = express();
 
-app.get('/', (req,res) => {
-    res.send({hi: "there"})
-})
+mongoose.connect(keys.mongoKey);
 
-app.listen(5000)
+require('./routes/homeRoutes')(app);
+
+const PORT = process.env.NODE_ENV || 5000;
+app.listen(PORT);
