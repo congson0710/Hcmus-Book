@@ -1,15 +1,12 @@
 import React from 'react';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from './App';
-import Home from './App/Home';
 
 const Routes = () => (
-  <BrowserRouter>
-    <div>
-      <Route path="/" component={App} />
-    </div>
-  </BrowserRouter>
+  <Router>
+    <App />
+  </Router>
 );
 
 export default Routes;
