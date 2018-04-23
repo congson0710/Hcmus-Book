@@ -64,7 +64,7 @@ export default class Register extends React.Component {
                   type="text"
                   class="form-control input-md"
                   required=""
-                />>
+                />
               </div>
             </div>
             <div class="form-group">

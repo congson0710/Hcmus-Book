@@ -3,12 +3,12 @@ import React from 'react';
 export default class ChangePassword extends React.Component {
   render() {
     return (
-      <div className="container">
+      <div className="container" style={{ margin: `24px auto` }}>
         <div className="col-lg-10 col-lg-offset-1">
           <h4 style={{ paddingTop: `14px` }}>
             <b>Thay đổi mật khẩu</b>
           </h4>
-          <hr />>
+          <hr />
           <form className="form-horizontal">
             <div className="form-group">
               <label

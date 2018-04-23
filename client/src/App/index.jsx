@@ -8,6 +8,9 @@ import Cart from './Cart';
 import ChangePassword from './ChangePassword';
 import Customer from './Customer';
 import Register from './Register';
+import Order from './Order';
+import OrderHistory from './OrderHistory';
+import Detail from './Detail';
 
 const App = props => (
   <div>
@@ -18,7 +21,10 @@ const App = props => (
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/changepassword" component={ChangePassword} />
         <Route exact path="/customer" component={Customer} />
-        <Route exact path="/register" compoenent={Register} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/order" component={Order} />
+        <Route exact path="/order/history" component={OrderHistory} />
+        <Route exact path="/detail/:productID" component={Detail} />
       </Switch>
     </Router>
     <Footer />
