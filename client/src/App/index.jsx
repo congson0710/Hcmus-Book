@@ -5,6 +5,8 @@ import Header from './Header';
 import Footer from './Footer';
 import Home from './Home';
 import Cart from './Cart';
+import ChangePassword from './ChangePassword';
+import Customer from './Customer';
 
 const App = props => (
   <div>
@@ -13,6 +15,8 @@ const App = props => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/cart" component={Cart} />
+        <Route exact path="/changepassword" component={ChangePassword} />
+        <Route exact path="/customer" component={Customer} />
       </Switch>
     </Router>
     <Footer />
