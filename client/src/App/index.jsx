@@ -7,6 +7,7 @@ import Home from './Home';
 import Cart from './Cart';
 import ChangePassword from './ChangePassword';
 import Customer from './Customer';
+import Register from './Register';
 
 const App = props => (
   <div>
@@ -17,6 +18,7 @@ const App = props => (
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/changepassword" component={ChangePassword} />
         <Route exact path="/customer" component={Customer} />
+        <Route exact path="/register" compoenent={Register} />
       </Switch>
     </Router>
     <Footer />
