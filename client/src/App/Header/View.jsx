@@ -50,14 +50,14 @@ export default class Header extends React.Component {
             <ul className="nav navbar-nav">
               <li className="menu-li">
                 <a href="index.html">
-                  <i className="fa fa-home" aria-hidden="true" /> &nbsp{' '}
+                  <i className="fa fa-home" aria-hidden="true" />
                   <b>TRANG CHỦ</b>
                 </a>
               </li>
               <li className="dropdown">
                 <button className="dropbtn">
                   <i className="fa fa-bars" aria-hidden="true" />
-                  &nbsp <b>DANH MỤC</b> &nbsp<b className="caret" />
+                  <b>DANH MỤC</b> <b className="caret" />
                 </button>
                 <div className="dropdown-content">
                   <a href="food-list.html">Tất cả</a>
@@ -69,7 +69,7 @@ export default class Header extends React.Component {
               <li className="dropdown">
                 <button className="dropbtn">
                   <i className="fa fa-map-marker" aria-hidden="true" />
-                  &nbsp <b>CHI NHÁNH</b> &nbsp<b className="caret" />
+                  <b>CHI NHÁNH</b> <b className="caret" />
                 </button>
                 <div className="dropdown-content">
                   <a href="agency.html">Quận 1</a>
@@ -81,12 +81,12 @@ export default class Header extends React.Component {
             <ul className="nav navbar-nav navbar-right">
               <li className="menu-li">
                 <a href="register.html">
-                  <i className="fa fa-pencil-square-o" /> &nbsp <b>ĐĂNG KÝ</b>
+                  <i className="fa fa-pencil-square-o" /> <b>ĐĂNG KÝ</b>
                 </a>
               </li>
               <li className="dropdown menu-li" style={{ paddingRight: `15px` }}>
                 <a className="dropdown-toggle" href="#" data-toggle="dropdown">
-                  <i className="fa fa-sign-in" /> &nbsp<b>ĐĂNG NHẬP</b>
+                  <i className="fa fa-sign-in" /> <b>ĐĂNG NHẬP</b>
                 </a>
                 <div
                   className="dropdown-menu form-login"

@@ -6,7 +6,6 @@ export default class Home extends React.Component {
       <div className="container">
         <div className="col-lg-10 col-lg-offset-1">
           <h4 style={{ paddingTop: `14px` }}>
-            {' '}
             <b> Chi nhánh Quận 01</b>
           </h4>
           <hr />
@@ -16,10 +15,10 @@ export default class Home extends React.Component {
                 src="images/quan-an/quan-1.jpg"
                 className="img-responsive img-agency"
                 style={{ maxHeight: `315px` }}
+                alt="img"
               />
               <div className="agency-info" style={{ marginTop: `10px` }}>
                 <p>
-                  {' '}
                   <i className="fa fa-map-marker" /> Địa chỉ: 10A-10B-10C Lê
                   Thánh Tôn, P. Bến Nghé, Q. 1
                 </p>
@@ -113,7 +112,7 @@ export default class Home extends React.Component {
                     </li>
                     <li className="list-group-item">
                       <i className="fa fa-phone fa-lg" />
-                      &nbsp Hot line hỗ trợ:
+                      Hot line hỗ trợ:
                       <em style={{ color: `red` }}>01666xxxxxx</em>
                     </li>
                     <button
@@ -129,7 +128,6 @@ export default class Home extends React.Component {
             </div>
           </div>
           <h4 style={{ paddingTop: `14px` }}>
-            {' '}
             Các món ăn thuộc <b> chi nhánh Quận 01</b>
           </h4>
           <hr />
@@ -144,8 +142,8 @@ export default class Home extends React.Component {
                 <div className="caption">
                   <h4>Tên món ăn</h4>
                   <p>
-                    <i className="fa fa-tag" aria-hidden="true" /> &nbsp Giá:
-                    100.000 VND
+                    <i className="fa fa-tag" aria-hidden="true" /> Giá: 100.000
+                    VND
                   </p>
                 </div>
               </a>
@@ -160,8 +158,8 @@ export default class Home extends React.Component {
                 <div className="caption">
                   <h4>Tên món ăn</h4>
                   <p>
-                    <i className="fa fa-tag" aria-hidden="true" /> &nbsp Giá:
-                    100.000 VND
+                    <i className="fa fa-tag" aria-hidden="true" /> Giá: 100.000
+                    VND
                   </p>
                 </div>
               </a>
@@ -176,8 +174,8 @@ export default class Home extends React.Component {
                 <div className="caption">
                   <h4>Tên món ăn</h4>
                   <p>
-                    <i className="fa fa-tag" aria-hidden="true" /> &nbsp Giá:
-                    100.000 VND
+                    <i className="fa fa-tag" aria-hidden="true" /> Giá: 100.000
+                    VND
                   </p>
                 </div>
               </a>
@@ -192,74 +190,8 @@ export default class Home extends React.Component {
                 <div className="caption">
                   <h4>Tên món ăn</h4>
                   <p>
-                    <i className="fa fa-tag" aria-hidden="true" /> &nbsp Giá:
-                    100.000 VND
-                  </p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-3">
-              <a href="#" className="thumbnail">
-                <img
-                  alt="Image"
-                  src="http://placehold.it/250x200"
-                  className="img-responsive"
-                />
-                <div className="caption">
-                  <h4>Tên món ăn</h4>
-                  <p>
-                    <i className="fa fa-tag" aria-hidden="true" /> &nbsp Giá:
-                    100.000 VND
-                  </p>
-                </div>
-              </a>
-            </div>
-            <div className="col-md-3">
-              <a href="#" className="thumbnail">
-                <img
-                  alt="Image"
-                  src="http://placehold.it/250x200"
-                  className="img-responsive"
-                />
-                <div className="caption">
-                  <h4>Tên món ăn</h4>
-                  <p>
-                    <i className="fa fa-tag" aria-hidden="true" /> &nbsp Giá:
-                    100.000 VND
-                  </p>
-                </div>
-              </a>
-            </div>
-            <div className="col-md-3">
-              <a href="#" className="thumbnail">
-                <img
-                  alt="Image"
-                  src="http://placehold.it/250x200"
-                  className="img-responsive"
-                />
-                <div className="caption">
-                  <h4>Tên món ăn</h4>
-                  <p>
-                    <i className="fa fa-tag" aria-hidden="true" /> &nbsp Giá:
-                    100.000 VND
-                  </p>
-                </div>
-              </a>
-            </div>
-            <div className="col-md-3">
-              <a href="#" className="thumbnail">
-                <img
-                  alt="Image"
-                  src="http://placehold.it/250x200"
-                  className="img-responsive"
-                />
-                <div className="caption">
-                  <h4>Tên món ăn</h4>
-                  <p>
-                    <i className="fa fa-tag" aria-hidden="true" /> &nbsp Giá:
-                    100.000 VND
+                    <i className="fa fa-tag" aria-hidden="true" /> Giá: 100.000
+                    VND
                   </p>
                 </div>
               </a>
@@ -276,8 +208,8 @@ export default class Home extends React.Component {
                 <div className="caption">
                   <h4>Tên món ăn</h4>
                   <p>
-                    <i className="fa fa-tag" aria-hidden="true" /> &nbsp Giá:
-                    100.000 VND
+                    <i className="fa fa-tag" aria-hidden="true" /> Giá: 100.000
+                    VND
                   </p>
                 </div>
               </a>
@@ -292,8 +224,8 @@ export default class Home extends React.Component {
                 <div className="caption">
                   <h4>Tên món ăn</h4>
                   <p>
-                    <i className="fa fa-tag" aria-hidden="true" /> &nbsp Giá:
-                    100.000 VND
+                    <i className="fa fa-tag" aria-hidden="true" /> Giá: 100.000
+                    VND
                   </p>
                 </div>
               </a>
@@ -308,8 +240,8 @@ export default class Home extends React.Component {
                 <div className="caption">
                   <h4>Tên món ăn</h4>
                   <p>
-                    <i className="fa fa-tag" aria-hidden="true" /> &nbsp Giá:
-                    100.000 VND
+                    <i className="fa fa-tag" aria-hidden="true" /> Giá: 100.000
+                    VND
                   </p>
                 </div>
               </a>
@@ -324,8 +256,74 @@ export default class Home extends React.Component {
                 <div className="caption">
                   <h4>Tên món ăn</h4>
                   <p>
-                    <i className="fa fa-tag" aria-hidden="true" /> &nbsp Giá:
-                    100.000 VND
+                    <i className="fa fa-tag" aria-hidden="true" /> Giá: 100.000
+                    VND
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-3">
+              <a href="#" className="thumbnail">
+                <img
+                  alt="Image"
+                  src="http://placehold.it/250x200"
+                  className="img-responsive"
+                />
+                <div className="caption">
+                  <h4>Tên món ăn</h4>
+                  <p>
+                    <i className="fa fa-tag" aria-hidden="true" /> Giá: 100.000
+                    VND
+                  </p>
+                </div>
+              </a>
+            </div>
+            <div className="col-md-3">
+              <a href="#" className="thumbnail">
+                <img
+                  alt="Image"
+                  src="http://placehold.it/250x200"
+                  className="img-responsive"
+                />
+                <div className="caption">
+                  <h4>Tên món ăn</h4>
+                  <p>
+                    <i className="fa fa-tag" aria-hidden="true" /> Giá: 100.000
+                    VND
+                  </p>
+                </div>
+              </a>
+            </div>
+            <div className="col-md-3">
+              <a href="#" className="thumbnail">
+                <img
+                  alt="Image"
+                  src="http://placehold.it/250x200"
+                  className="img-responsive"
+                />
+                <div className="caption">
+                  <h4>Tên món ăn</h4>
+                  <p>
+                    <i className="fa fa-tag" aria-hidden="true" /> Giá: 100.000
+                    VND
+                  </p>
+                </div>
+              </a>
+            </div>
+            <div className="col-md-3">
+              <a href="#" className="thumbnail">
+                <img
+                  alt="Image"
+                  src="http://placehold.it/250x200"
+                  className="img-responsive"
+                />
+                <div className="caption">
+                  <h4>Tên món ăn</h4>
+                  <p>
+                    <i className="fa fa-tag" aria-hidden="true" /> Giá: 100.000
+                    VND
                   </p>
                 </div>
               </a>

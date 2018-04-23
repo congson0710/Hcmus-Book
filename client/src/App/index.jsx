@@ -4,6 +4,7 @@ import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import Home from './Home';
+import Cart from './Cart';
 
 const App = props => (
   <div>
@@ -11,6 +12,7 @@ const App = props => (
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/cart" component={Cart} />
       </Switch>
     </Router>
     <Footer />
