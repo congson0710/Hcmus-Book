@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Header extends React.Component {
   render() {
@@ -7,9 +8,9 @@ export default class Header extends React.Component {
         <div className="container">
           <div className="navbar-search">
             <div className="col-lg-2">
-              <a href="index.html" style={{ textDecoration: `none` }}>
-                <p className="header-logo"> My Food </p>
-              </a>
+              <Link to="/" style={{ textDecoration: `none` }}>
+                <p className="header-logo"> HCMUSach </p>
+              </Link>
             </div>
             <div className="col-lg-8">
               <form
@@ -21,7 +22,7 @@ export default class Header extends React.Component {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Tên món ăn"
+                    placeholder="Tìm kiếm nhanh..."
                     name="q"
                   />
                   <div className="input-group-btn">
@@ -38,92 +39,49 @@ export default class Header extends React.Component {
             </div>
             <div className="col-lg-2">
               <div className="header-cart">
-                <a href="cart.html">
+                <Link to="/cart">
                   <i className="fa fa-shopping-cart" aria-hidden="true" />
                   Giỏ hàng
                   <b className="header-cart-count">0</b>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
           <div className="navbar-menu">
             <ul className="nav navbar-nav">
               <li className="menu-li">
-                <a href="index.html">
+                <Link to="/">
                   <i className="fa fa-home" aria-hidden="true" />
                   <b>TRANG CHỦ</b>
-                </a>
+                </Link>
               </li>
               <li className="dropdown">
                 <button className="dropbtn">
                   <i className="fa fa-bars" aria-hidden="true" />
-                  <b>DANH MỤC</b> <b className="caret" />
+                  <b>THỂ LOẠI</b> <b className="caret" />
                 </button>
                 <div className="dropdown-content">
                   <a href="food-list.html">Tất cả</a>
-                  <a href="food-list.html">Món gà</a>
-                  <a href="food-list.html">Món cá</a>
-                  <a href="food-list.html">Đồ lẩu</a>
-                </div>
-              </li>
-              <li className="dropdown">
-                <button className="dropbtn">
-                  <i className="fa fa-map-marker" aria-hidden="true" />
-                  <b>CHI NHÁNH</b> <b className="caret" />
-                </button>
-                <div className="dropdown-content">
-                  <a href="agency.html">Quận 1</a>
-                  <a href="agency.html">Quận 2</a>
-                  <a href="agency.html">Quận 3</a>
+                  <a href="food-list.html">Truyện</a>
+                  <a href="food-list.html">Kinh tế</a>
+                  <a href="food-list.html">Khoa học</a>
                 </div>
               </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="menu-li">
-                <a href="register.html">
+                <Link to="/register">
                   <i className="fa fa-pencil-square-o" /> <b>ĐĂNG KÝ</b>
-                </a>
+                </Link>
               </li>
               <li className="dropdown menu-li" style={{ paddingRight: `15px` }}>
-                <a className="dropdown-toggle" href="#" data-toggle="dropdown">
-                  <i className="fa fa-sign-in" /> <b>ĐĂNG NHẬP</b>
-                </a>
-                <div
-                  className="dropdown-menu form-login"
-                  style={{ padding: `15px`, paddingBottom: `10px` }}
+                <Link
+                  className="dropdown-toggle"
+                  to="/login"
+                  data-toggle="dropdown"
                 >
-                  <form className="form-horizontal" accept-charset="UTF-8">
-                    <input
-                      id="usernameLogin"
-                      className="form-control form-login"
-                      type="text"
-                      name="usernameLogin"
-                      placeholder="Số điện thoại..."
-                    />
-                    <input
-                      id="passwordLogin"
-                      className="form-control form-login"
-                      type="password"
-                      name="passwordLogin"
-                      placeholder="Mật khẩu..."
-                    />
-                    <label className="form-check-label">
-                      <input
-                        id="saveLogin"
-                        name="saveLogin"
-                        type="checkbox"
-                        className="form-check-input"
-                      />
-                      Ghi nhớ đăng nhập
-                    </label>
-                    <button
-                      className="btn btn-primary pull-right"
-                      type="submit"
-                    >
-                      Đăng nhập
-                    </button>
-                  </form>
-                </div>
+                  <i className="fa fa-sign-in" /> <b>ĐĂNG NHẬP</b>
+                </Link>
               </li>
             </ul>
           </div>
