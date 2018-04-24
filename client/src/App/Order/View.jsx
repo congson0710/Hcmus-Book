@@ -86,7 +86,7 @@ export default class Order extends React.Component {
                 <input
                   id="name2"
                   name="name2"
-                  value="Phạm Đức Lộc"
+                  value="Trịnh Công Sơn"
                   type="text"
                   className="form-control input-md"
                   required=""
