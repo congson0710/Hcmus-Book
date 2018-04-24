@@ -71,15 +71,12 @@ export default class Header extends React.Component {
             <ul className="nav navbar-nav navbar-right">
               <li className="menu-li">
                 <Link to="/register">
-                  <i className="fa fa-pencil-square-o" /> <b>ĐĂNG KÝ</b>
+                  <i className="fa fa-pencil-square-o" />
+                  <b>ĐĂNG KÝ</b>
                 </Link>
               </li>
               <li className="dropdown menu-li" style={{ paddingRight: `15px` }}>
-                <Link
-                  className="dropdown-toggle"
-                  to="/login"
-                  data-toggle="dropdown"
-                >
+                <Link to="/login">
                   <i className="fa fa-sign-in" /> <b>ĐĂNG NHẬP</b>
                 </Link>
               </li>

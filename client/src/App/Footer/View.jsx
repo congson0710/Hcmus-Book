@@ -27,16 +27,13 @@ export default class Footer extends React.Component {
                 <h3> Liên hệ </h3>
                 <ul>
                   <li>
-                    <a href="#"> Admission </a>
+                    <a href="#"> Giới thiệu </a>
                   </li>
                   <li>
-                    <a href="#"> Academic </a>
+                    <a href="#"> Bản quyền </a>
                   </li>
                   <li>
-                    <a href="#"> Career </a>
-                  </li>
-                  <li>
-                    <a href="#"> Administration </a>
+                    <a href="#"> Liên hệ </a>
                   </li>
                 </ul>
               </div>

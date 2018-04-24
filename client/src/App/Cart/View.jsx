@@ -13,7 +13,7 @@ export default class Cart extends React.Component {
             <table className="table table-hover table-bordered">
               <thead>
                 <tr>
-                  <th>Món ăn</th>
+                  <th>Tên sách</th>
                   <th>Số lượng</th>
                   <th className="text-center">Đơn giá</th>
                   <th className="text-center">Tổng giá</th>
@@ -34,7 +34,7 @@ export default class Cart extends React.Component {
                       </a>
                       <div className="media-body">
                         <h4 className="media-heading cart-text-padding-top">
-                          <a href="#">Tên món ăn</a>
+                          <a href="#">Tên sách</a>
                         </h4>
                       </div>
                     </div>
@@ -71,11 +71,12 @@ export default class Cart extends React.Component {
                           className="media-object"
                           src="http://placehold.it/250x200"
                           style={{ width: `100px`, height: `80px` }}
+                          alt="img"
                         />
                       </a>
                       <div className="media-body">
                         <h4 className="media-heading cart-text-padding-top">
-                          <a href="#">Tên món ăn</a>
+                          <a href="#">Tên sách</a>
                         </h4>
                       </div>
                     </div>
@@ -102,7 +103,7 @@ export default class Cart extends React.Component {
                 <tr>
                   <td colspan="1">
                     <h4 className="pull-left">
-                      <b>Chọn chi nhánh</b>
+                      <b>Chọn khu vực</b>
                     </h4>
                   </td>
                   <td colspan="2">
@@ -110,10 +111,10 @@ export default class Cart extends React.Component {
                       className="list-group-item center-block"
                       style={{ width: `180px` }}
                     >
-                      <option value="1">Chi nhánh 1</option>
-                      <option value="2">Chi nhánh 2</option>
-                      <option value="3">Chi nhánh 3</option>
-                      <option value="3">Chi nhánh 4</option>
+                      <option value="1">Quận 1</option>
+                      <option value="2">Quận 2</option>
+                      <option value="3">Quận 3</option>
+                      <option value="3">Quận 4</option>
                     </select>
                   </td>
                   <td />
