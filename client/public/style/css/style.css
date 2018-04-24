@@ -149,9 +149,9 @@ input.form-login {
 
 div.form-login {
   background: #ffffff !important;
-  margin: 120px auto;
+  margin: 60px auto;
   width: 360px;
-  border: 1px solid;
+  border: 1px solid #ccc;
   border-radius: 6px;
 }
 

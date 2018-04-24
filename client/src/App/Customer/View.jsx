@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Dropdown } from 'semantic-ui-react';
 
 export default class Customer extends React.Component {
   render() {
@@ -15,12 +17,11 @@ export default class Customer extends React.Component {
               <div className="col-md-6">
                 <input
                   name="phoneNumber"
-                  value="01666xxxxxx"
+                  value="0908xxxxxx"
                   type="text"
                   placeholder=""
                   className="form-control input-md"
                   required=""
-                  disabled
                 />
               </div>
             </div>
@@ -31,11 +32,10 @@ export default class Customer extends React.Component {
               <div className="col-md-6">
                 <input
                   name="name"
-                  value="Phạm Đức Lộc"
+                  value="Trịnh Công Sơn"
                   type="text"
                   className="form-control input-md"
                   required=""
-                  disabled
                 />
               </div>
             </div>
@@ -43,17 +43,16 @@ export default class Customer extends React.Component {
               <label className="col-md-3 control-label" for="gender">
                 Giới tính
               </label>
-              <div className="col-md-2">
-                <select
-                  id="gender"
-                  name="gender"
-                  className="form-control"
-                  disabled
-                >
-                  <option value="1">Nam</option>
-                  <option value="2">Nữ</option>
-                </select>
-              </div>
+              <Dropdown
+                className="col-md-2"
+                selection
+                style={{ marginLeft: `14px` }}
+              >
+                <Dropdown.Menu>
+                  <Dropdown.Item text="Nam" />
+                  <Dropdown.Item text="Nữ" />
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
             <div className="form-group">
               <label className="col-md-3 control-label" forHtml="location">
@@ -64,7 +63,6 @@ export default class Customer extends React.Component {
                   name="location"
                   className="form-control input-md"
                   required=""
-                  disabled
                 >
                   Thành phố Hồ Chí Minh
                 </textarea>
@@ -75,12 +73,12 @@ export default class Customer extends React.Component {
                 <button className="btn btn-info btn-register">
                   Thay đổi thông tin
                 </button>
-                <a
+                <Link
                   className="btn btn-warning btn-register"
-                  href="change-password.html"
+                  to="/changepassword"
                 >
                   Thay đổi mật khẩu
-                </a>
+                </Link>
               </div>
             </div>
           </form>

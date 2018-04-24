@@ -61,10 +61,10 @@ export default class Header extends React.Component {
                   <b>THỂ LOẠI</b> <b className="caret" />
                 </button>
                 <div className="dropdown-content">
-                  <a href="food-list.html">Tất cả</a>
-                  <a href="food-list.html">Truyện</a>
-                  <a href="food-list.html">Kinh tế</a>
-                  <a href="food-list.html">Khoa học</a>
+                  <Link to="/category">Tất cả</Link>
+                  <Link to="/category">Truyện</Link>
+                  <Link to="/category">Kinh tế</Link>
+                  <Link to="/category">Khoa học</Link>
                 </div>
               </li>
             </ul>
