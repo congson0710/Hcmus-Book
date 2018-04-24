@@ -69,7 +69,7 @@ export default class Order extends React.Component {
                 <input
                   id="phoneNumber2"
                   name="phoneNumber2"
-                  value="01666xxxxxx"
+                  value="0908xxxxxx"
                   type="text"
                   placeholder=""
                   className="form-control input-md"

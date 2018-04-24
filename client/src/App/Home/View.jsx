@@ -111,7 +111,7 @@ export default class Home extends React.Component {
                     <li className="list-group-item">
                       <i className="fa fa-phone fa-lg" />
                       Hot line hỗ trợ:
-                      <em style={{ color: `red` }}>01666xxxxxx</em>
+                      <em style={{ color: `red` }}>0908xxxxxx</em>
                     </li>
                     <button
                       type="submit"
