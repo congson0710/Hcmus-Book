@@ -10,7 +10,7 @@ export default class Register extends React.Component {
           <form class="form-horizontal">
             <div class="form-group">
               <label class="col-md-3 control-label" for="phoneNumber">
-                Số điện thoại
+                Tài khoản
               </label>
               <div class="col-md-6">
                 <input
