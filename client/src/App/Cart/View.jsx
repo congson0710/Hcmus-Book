@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Cart extends React.Component {
   render() {
@@ -162,9 +163,11 @@ export default class Cart extends React.Component {
               </tbody>
             </table>
             <div className="pull-right" style={{ marginBottom: `20px` }}>
-              <button type="button" className="btn btn-success btn-lg">
-                Thanh toán
-              </button>
+              <Link to="/order">
+                <button type="button" className="btn btn-success btn-lg">
+                  Xác nhận
+                </button>
+              </Link>
             </div>
           </div>
         </div>

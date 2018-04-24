@@ -3,7 +3,7 @@ import React from 'react';
 export default class OrderHistory extends React.Component {
   render() {
     return (
-      <div className="container">
+      <div className="container" style={{ margin: `60px auto` }}>
         <div className="col-lg-10 col-lg-offset-1">
           <h4 style={{ paddingTop: `14px` }}>
             <b>Lịch sử đơn hàng </b>
