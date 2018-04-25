@@ -10,7 +10,7 @@ import Order from './Order';
 import OrderHistory from './OrderHistory';
 import Login from './Login';
 import Category from './Category';
-import Detail from './Detail';
+import BookDetail from './BookDetail';
 
 const App = props => (
   <div>
@@ -21,7 +21,7 @@ const App = props => (
     <Route exact path="/register" component={Register} />
     <Route exact path="/order" component={Order} />
     <Route exact path="/order/history" component={OrderHistory} />
-    <Route exact path="/detail/:productID" component={Detail} />
+    <Route exact path="/book-detail/:productID" component={BookDetail} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/category" component={Category} />
   </div>
