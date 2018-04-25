@@ -508,3 +508,8 @@ td.middle {
   border-radius: 4px;
   overflow: scroll;
 }
+
+.btnCancel {
+  display: flex;
+  justify-content: center;
+}

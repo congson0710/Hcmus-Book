@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 
 import OrderDetail from '../OrderDetail';
 
@@ -80,6 +81,14 @@ const OrderHistory = props => {
                 <div className="mainModal">
                   <div className="contentModal">
                     <OrderDetail />
+                    <div className="btnCancel">
+                      <button
+                        className="btn btn-info"
+                        onClick={props.handleShowOrderDetail}
+                      >
+                        Hủy
+                      </button>
+                    </div>
                   </div>
                 </div>
               )}
