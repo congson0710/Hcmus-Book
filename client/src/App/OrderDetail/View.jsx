@@ -10,7 +10,7 @@ export default class OrderDetail extends React.Component {
               <b>Thông tin giỏ hàng</b>
             </h4>
             <hr />
-            <table className="table table-hover table-bordered">
+            <table className="table table-bordered">
               <thead>
                 <tr>
                   <th>Tên sách</th>
