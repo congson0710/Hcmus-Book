@@ -1,9 +1,15 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const keys = require('./config/key');
 const app = express();
+const sequelize = require('./database/mysqlConfig');
 
-mongoose.connect(keys.mongoKey);
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 require('./routes/homeRoutes')(app);
 

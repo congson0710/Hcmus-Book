@@ -12,7 +12,6 @@ export default class OrderHistory extends React.Component {
   }
 
   handleShowOrderDetail() {
-    console.log('click dc');
     this.setState({ isShowDetail: !this.state.isShowDetail });
   }
 
