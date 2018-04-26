@@ -1,12 +1,11 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const Sequelize = require('sequelize');
+const sequelizeConnect = require('../database/mysqlConfig');
 
-const userSchema = new Schema({
-  name: String,
-  account: String,
-  password: String,
-  sexual: String,
-  address: String,
+module.exports = sequelizeConnect.define({
+  userID: { type: Sequelize.INTEGER, autoIncrement: true, allowNull: false },
+  userName: { type: Sequelize.STRING, allowNull: false },
+  userAccount: { type: Sequelize.INTEGER, allowNull: false },
+  userPassword: { type: Sequelize.FLOAT, allowNull: false },
+  userAddress: { type: Sequelize.STRING, allowNull: false },
+  isAdmin: { type: Sequelize.TINYINT, allowNull: false },
 });
-
-mongoose.model('user', userSchema);

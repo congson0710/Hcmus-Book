@@ -1,9 +1,11 @@
-const mongoose = require('mongoose')
-const {Schema} = mongoose
+const Sequelize = require('sequelize');
+const sequelizeConnect = require('../database/mysqlConfig');
 
-const bookSchema = new Schema({
-    name: String,
-    quantityLeft: {type: Number, default: 200},
-    category: String,
-    price: Number
-})
+module.exports = sequelizeConnect.define({
+  bookID: { type: Sequelize.INTEGER, autoIncrement: true, allowNull: false },
+  bookName: { type: Sequelize.STRING, allowNull: false },
+  bookQuantityLeft: { type: Sequelize.INTEGER, allowNull: false },
+  bookPrice: { type: Sequelize.FLOAT, allowNull: false },
+  bookImage: { type: Sequelize.STRING, allowNull: false },
+  bookDescription: { type: Sequelize.STRING, allowNull: false },
+});
