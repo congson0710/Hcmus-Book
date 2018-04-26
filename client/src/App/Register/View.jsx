@@ -1,101 +1,114 @@
 import React from 'react';
+import { Dropdown } from 'semantic-ui-react';
+
+const genderOption = [
+  {
+    value: 'Nam',
+    text: 'Nam',
+  },
+  {
+    value: 'Nữ',
+    text: 'Nữ',
+  },
+];
 
 const Register = props => {
   return (
-    <div class="container">
-      <div class="col-lg-10 col-lg-offset-1">
+    <div className="container">
+      <div className="col-lg-10 col-lg-offset-1">
         <h4 style={{ paddingTop: `14px` }}> Tạo tài khoản khách hàng mới </h4>
         <hr />
-        <div class="form-horizontal">
-          <div class="form-group">
-            <label class="col-md-3 control-label" for="phoneNumber">
+        <div className="form-horizontal">
+          <div className="form-group">
+            <label className="col-md-3 control-label" for="phoneNumber">
               Tài khoản
             </label>
-            <div class="col-md-6">
+            <div className="col-md-6">
               <input
                 name="userAccount"
                 type="text"
                 placeholder=""
-                class="form-control input-md"
+                className="form-control input-md"
                 required=""
                 onChange={props.handleOnChange}
               />
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label" for="password">
+          <div className="form-group">
+            <label className="col-md-3 control-label" for="password">
               Mật khẩu
             </label>
-            <div class="col-md-6">
+            <div className="col-md-6">
               <input
                 name="userPassword"
                 type="password"
                 placeholder=""
-                class="form-control input-md"
+                className="form-control input-md"
                 required=""
                 onChange={props.handleOnChange}
               />
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label" for="rePassword">
+          <div className="form-group">
+            <label className="col-md-3 control-label" for="rePassword">
               Nhập lại mật khẩu
             </label>
-            <div class="col-md-6">
+            <div className="col-md-6">
               <input
                 name="userRePassword"
                 type="password"
                 placeholder=""
-                class="form-control input-md"
+                className="form-control input-md"
                 required=""
                 onChange={props.handleOnChange}
               />
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label" for="name">
+          <div className="form-group">
+            <label className="col-md-3 control-label" for="name">
               Họ và tên
             </label>
-            <div class="col-md-6">
+            <div className="col-md-6">
               <input
                 name="userName"
                 type="text"
-                class="form-control input-md"
+                className="form-control input-md"
                 required=""
                 onChange={props.handleOnChange}
               />
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label" for="gender">
-              Giới tính
-            </label>
-            <div class="col-md-2">
-              <select id="gender" name="gender" class="form-control">
-                <option value="1">Nam</option>
-                <option value="2">Nữ</option>
-              </select>
+          <div className="form-group">
+            <label className="col-md-3 control-label">Giới tính</label>
+            <div className="col-md-2">
+              <Dropdown
+                className="form-control"
+                name="gender"
+                selection
+                options={genderOption}
+                onChange={props.handleOnSelect}
+              />
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label" for="location">
+          <div className="form-group">
+            <label className="col-md-3 control-label" for="location">
               Địa chỉ
             </label>
-            <div class="col-md-6">
+            <div className="col-md-6">
               <textarea
                 name="address"
                 placeholder=""
-                class="form-control input-md"
+                className="form-control input-md"
                 required=""
                 onChange={props.handleOnChange}
               />
             </div>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <div style={{ textAlign: `center` }}>
               <button
                 onClick={props.handleRegister}
-                class="btn btn-primary btn-lg btn-register"
+                className="btn btn-primary btn-lg btn-register"
               >
                 Đăng ký
               </button>

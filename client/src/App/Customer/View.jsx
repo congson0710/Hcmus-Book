@@ -3,6 +3,24 @@ import { Link } from 'react-router-dom';
 import { Dropdown } from 'semantic-ui-react';
 
 export default class Customer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      genderOption: [
+        {
+          key: 'nam',
+          value: 'nam',
+          text: 'Nam',
+        },
+        {
+          key: 'nu',
+          value: 'nu',
+          text: 'Nữ',
+        },
+      ],
+    };
+  }
   render() {
     return (
       <div className="container">
@@ -45,14 +63,11 @@ export default class Customer extends React.Component {
               </label>
               <Dropdown
                 className="col-md-2"
+                text="Nam"
                 selection
+                options={this.state.genderOption}
                 style={{ marginLeft: `14px` }}
-              >
-                <Dropdown.Menu>
-                  <Dropdown.Item text="Nam" />
-                  <Dropdown.Item text="Nữ" />
-                </Dropdown.Menu>
-              </Dropdown>
+              />
             </div>
             <div className="form-group">
               <label className="col-md-3 control-label" forHtml="location">
