@@ -1,10 +1,14 @@
 const express = require('express');
-const app = express();
+const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
+//
 const sequelizeConnect = require('./database/mysqlConfig');
-
 // models
 const Users = require('./models/Users');
+
+const app = express();
+
+app.use(bodyParser.json());
 
 sequelizeConnect
   .authenticate()
