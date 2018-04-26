@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelizeConnect = require('../database/mysqlConfig');
 
-module.exports = sequelizeConnect.define({
+module.exports = sequelizeConnect.define('books', {
   bookID: { type: Sequelize.INTEGER, autoIncrement: true, allowNull: false },
   bookName: { type: Sequelize.STRING, allowNull: false },
   bookQuantityLeft: { type: Sequelize.INTEGER, allowNull: false },

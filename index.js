@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
-const sequelize = require('./database/mysqlConfig');
+const Sequelize = require('sequelize');
+const sequelizeConnect = require('./database/mysqlConfig');
 
-sequelize
+// models
+const Users = require('./models/Users');
+
+sequelizeConnect
   .authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
