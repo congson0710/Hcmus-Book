@@ -1,3 +1,17 @@
-import Register from './View';
+import { connect } from 'react-redux';
+import Register from './Container';
+import { register } from '../../actions/users';
 
-export default Register;
+const mapStateToProps = ({ users }) => {
+  return {
+    registeredUser: users.registerUser,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    register: registerInfo => dispatch(register(registerInfo)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
