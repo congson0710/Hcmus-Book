@@ -3,7 +3,6 @@ import Register from './Container';
 import { register } from '../../actions/users';
 
 const mapStateToProps = ({ users }) => {
-  console.log(users);
   return {
     registerUser: users.registerUser,
   };

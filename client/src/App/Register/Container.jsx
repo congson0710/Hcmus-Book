@@ -29,8 +29,11 @@ export default class Register extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleRegister() {
-    this.props.register({ ...this.state });
+  async handleRegister() {
+    await this.props.register({ ...this.state });
+    return this.props.registerUser.isError
+      ? alert(this.props.registerUser.message)
+      : alert('Register Successfully!!');
   }
 
   render() {

@@ -12,7 +12,6 @@ export const register = registerInfo => async dispatch => {
 
   try {
     const response = await axios.post('/api/register', registerInfo);
-    console.log('user tra ve:', response);
     dispatch({
       type: REGISTER_SUCCESS,
       payload: response.data,
