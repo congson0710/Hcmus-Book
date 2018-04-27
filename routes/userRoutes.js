@@ -4,7 +4,7 @@ const sequelizeConnect = require('../database/mysqlConfig');
 const Users = require('../models/Users');
 
 module.exports = app => {
-  app.post('/api/register', async (req, res) => {
+  app.post('/api/register', (req, res) => {
     const { userName, userAccount, userPassword, address, gender } = req.body;
     Users.findOrCreate({
       where: { userAccount },
@@ -12,5 +12,9 @@ module.exports = app => {
     }).spread((user, created) => {
       created ? res.send(user) : res.status(401).send('Register Fail!!!');
     });
+  });
+
+  app.post('/api/login', (req, res) => {
+    console.log('req body:', req.body);
   });
 };
