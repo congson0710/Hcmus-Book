@@ -13,7 +13,7 @@ import Category from './Category';
 import BookDetail from './BookDetail';
 
 const App = props => (
-  <div>
+  <div className="main-body">
     <Route exact path="/" component={Home} />
     <Route exact path="/cart" component={Cart} />
     <Route exact path="/changepassword" component={ChangePassword} />
