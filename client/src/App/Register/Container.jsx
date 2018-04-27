@@ -13,11 +13,22 @@ export default class Register extends React.Component {
       userRePassword: '',
       gender: '',
       address: '',
+      isInvalid: true,
     };
 
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnSelect = this.handleOnSelect.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
+    this.handleValid = this.handleValid.bind(this);
+    this.handleInvalid = this.handleInvalid.bind(this);
+  }
+
+  handleValid() {
+    this.setState({ isInvalid: false });
+  }
+
+  handleInvalid() {
+    this.setState({ isInvalid: true });
   }
 
   handleOnChange(event) {
@@ -44,6 +55,8 @@ export default class Register extends React.Component {
         handleOnChange={this.handleOnChange}
         handleRegister={this.handleRegister}
         handleOnSelect={this.handleOnSelect}
+        handleValid={this.handleValid}
+        handleInvalid={this.handleInvalid}
       />
     );
   }

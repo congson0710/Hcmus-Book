@@ -1,5 +1,6 @@
 import React from 'react';
-import { Dropdown, Loader } from 'semantic-ui-react';
+import { Dropdown, Loader, Label } from 'semantic-ui-react';
+import { Form } from 'formsy-semantic-ui-react';
 
 const genderOption = [
   {
@@ -12,6 +13,8 @@ const genderOption = [
   },
 ];
 
+const errorLabel = <Label color="red" pointing />;
+
 const Register = props => {
   return (
     <div className="container" style={{ margin: `auto` }}>
@@ -21,88 +24,108 @@ const Register = props => {
         <div className="col-lg-10 col-lg-offset-1">
           <h4 style={{ paddingTop: `14px` }}>Tạo tài khoản khách hàng mới</h4>
           <hr />
-          <div className="form-horizontal">
+          <Form
+            className="form-horizontal"
+            onValid={props.handleValid}
+            onInvalid={props.handleInvalid}
+          >
             <div className="form-group">
-              <label className="col-md-3 control-label" for="phoneNumber">
-                Tài khoản
-              </label>
-              <div className="col-md-6">
-                <input
+              <div className="col-md-6 col-md-offset-3">
+                <Form.Input
+                  label="Tài khoản"
                   name="userAccount"
                   type="text"
-                  placeholder=""
-                  className="form-control input-md"
-                  required=""
+                  placeholder="Nhập tài khoản"
+                  required
+                  validationErrors={{
+                    isDefaultRequiredValue: 'Can not be empty',
+                  }}
+                  errorLabel={errorLabel}
                   onChange={props.handleOnChange}
                 />
               </div>
             </div>
             <div className="form-group">
-              <label className="col-md-3 control-label" for="password">
-                Mật khẩu
-              </label>
-              <div className="col-md-6">
-                <input
+              <div className="col-md-6 col-md-offset-3">
+                <Form.Input
+                  label="Mật khẩu"
                   name="userPassword"
                   type="password"
-                  placeholder=""
-                  className="form-control input-md"
-                  required=""
+                  placeholder="Nhập mật khẩu"
+                  required
+                  validations={{ minLength: 6 }}
+                  validationErrors={{
+                    isDefaultRequiredValue: 'Can not be empty',
+                    minLength: 'Password must contain at least 6 characters',
+                  }}
+                  errorLabel={errorLabel}
                   onChange={props.handleOnChange}
                 />
               </div>
             </div>
             <div className="form-group">
-              <label className="col-md-3 control-label" for="rePassword">
-                Nhập lại mật khẩu
-              </label>
-              <div className="col-md-6">
-                <input
+              <div className="col-md-6 col-md-offset-3">
+                <Form.Input
+                  label="Nhập lại mật khẩu"
                   name="userRePassword"
                   type="password"
-                  placeholder=""
-                  className="form-control input-md"
-                  required=""
+                  placeholder="Nhập lại mật khẩu"
+                  required
+                  validations={{ minLength: 6, equalsField: 'userPassword' }}
+                  validationErrors={{
+                    isDefaultRequiredValue: 'Can not be empty',
+                    equalsField: 'Password does not match!!',
+                    minLength: 'Password must contain at least 6 characters',
+                  }}
+                  errorLabel={errorLabel}
                   onChange={props.handleOnChange}
                 />
               </div>
             </div>
             <div className="form-group">
-              <label className="col-md-3 control-label" for="name">
-                Họ và tên
-              </label>
-              <div className="col-md-6">
-                <input
+              <div className="col-md-6 col-md-offset-3">
+                <Form.Input
+                  label="Họ và tên"
                   name="userName"
                   type="text"
-                  className="form-control input-md"
-                  required=""
+                  placeholder="Họ và tên..."
+                  required
+                  validationErrors={{
+                    isDefaultRequiredValue: 'Can not be empty',
+                  }}
+                  errorLabel={errorLabel}
                   onChange={props.handleOnChange}
                 />
               </div>
             </div>
             <div className="form-group">
-              <label className="col-md-3 control-label">Giới tính</label>
-              <div className="col-md-2">
-                <Dropdown
-                  className="form-control"
+              <div className="col-md-2 col-md-offset-3">
+                <Form.Dropdown
+                  label="Giới tính"
                   name="gender"
                   selection
                   options={genderOption}
                   onChange={props.handleOnSelect}
+                  required
+                  validationErrors={{
+                    isDefaultRequiredValue: 'Can not be empty',
+                  }}
+                  errorLabel={errorLabel}
                 />
               </div>
             </div>
             <div className="form-group">
-              <label className="col-md-3 control-label" for="location">
-                Địa chỉ
-              </label>
-              <div className="col-md-6">
-                <textarea
+              <div className="col-md-6 col-md-offset-3">
+                <Form.Input
+                  label="Địa chỉ"
                   name="address"
-                  placeholder=""
-                  className="form-control input-md"
-                  required=""
+                  type="text"
+                  placeholder="Địa chỉ..."
+                  required
+                  validationErrors={{
+                    isDefaultRequiredValue: 'Can not be empty',
+                  }}
+                  errorLabel={errorLabel}
                   onChange={props.handleOnChange}
                 />
               </div>
@@ -112,12 +135,16 @@ const Register = props => {
                 <button
                   onClick={props.handleRegister}
                   className="btn btn-primary btn-lg btn-register"
+                  disabled={props.isInvalid}
                 >
                   Đăng ký
                 </button>
+                <button className="btn btn-primary btn-lg btn-register">
+                  Hủy
+                </button>
               </div>
             </div>
-          </div>
+          </Form>
         </div>
       )}
     </div>
