@@ -70,6 +70,7 @@ const usersReducer = (state = initialState, action) => {
     }
 
     case LOGIN_SUCCESS: {
+      sessionStorage.setItem('appUser', JSON.stringify(action.payload));
       return {
         ...state,
         loginUser: {

@@ -11,19 +11,47 @@ import OrderHistory from './OrderHistory';
 import Login from './Login';
 import Category from './Category';
 import BookDetail from './BookDetail';
+import RequireLogin from '../components/RequireLogin';
+
+const requireLogin = (nextState, replace) => {
+  const appUser = JSON.parse(sessionStorage.getItem('appUser'));
+  if (!appUser) {
+    replace({
+      path: '/login',
+      state: { nextPathname: nextState.location.pathname },
+    });
+  }
+};
+
+const appUser = JSON.parse(sessionStorage.getItem('appUser'));
 
 const App = props => (
   <div className="main-body">
     <Route exact path="/" component={Home} />
-    <Route exact path="/cart" component={Cart} />
-    <Route exact path="/changepassword" component={ChangePassword} />
-    <Route exact path="/customer" component={Customer} />
     <Route exact path="/register" component={Register} />
-    <Route exact path="/order" component={Order} />
-    <Route exact path="/order/history" component={OrderHistory} />
     <Route exact path="/book-detail/:productID" component={BookDetail} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/category" component={Category} />
+    <RequireLogin authedUser={appUser} exact path="/cart" component={Cart} />
+    <RequireLogin
+      authedUser={appUser}
+      exact
+      path="/changepassword"
+      component={ChangePassword}
+    />
+    <RequireLogin
+      authedUser={appUser}
+      exact
+      path="/customer"
+      component={Customer}
+    />
+    <RequireLogin authedUser={appUser} exact path="/order" component={Order} />
+    <RequireLogin
+      authedUser={appUser}
+      exact
+      path="/order/history"
+      component={OrderHistory}
+    />
   </div>
 );
 
