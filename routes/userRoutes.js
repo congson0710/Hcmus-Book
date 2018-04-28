@@ -14,7 +14,14 @@ module.exports = app => {
     });
   });
 
-  app.post('/api/login', (req, res) => {
-    console.log('req body:', req.body);
+  app.post('/api/login', passport.authenticate('local'), (req, res) => {
+    req.user
+      ? res.send(req.user)
+      : res.send('Tài khoản hoặc mật khẩu không chính xác');
+  });
+
+  app.get('/api/logout', (req, res) => {
+    req.logout();
+    res.redirect('/');
   });
 };

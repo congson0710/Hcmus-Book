@@ -1,11 +1,16 @@
 import React from 'react';
+import { Loader } from 'semantic-ui-react';
 
-export default class Login extends React.Component {
-  render() {
-    return (
-      <div class="container">
-        <h2 style={{ paddingTop: `14px` }}> Đăng nhập </h2>
-        <hr />
+const Login = props => {
+  return (
+    <div class="container">
+      <h2 style={{ paddingTop: `14px` }}> Đăng nhập </h2>
+      <hr />
+      {props.loginUser.isLoading ? (
+        <div>
+          <Loader active content="Loading" large />
+        </div>
+      ) : (
         <div
           className="form-login"
           style={{
@@ -13,26 +18,26 @@ export default class Login extends React.Component {
             paddingBottom: `10px`,
           }}
         >
-          <form
+          <div
             className="form-horizontal"
             acceptCharset="UTF-8"
             style={{ padding: `24px` }}
           >
             <label>Tài khoản</label>
             <input
-              id="usernameLogin"
               className="form-control form-login"
               type="text"
-              name="usernameLogin"
+              name="userAccount"
               placeholder="Tên đăng nhập..."
+              onChange={props.handleOnChange}
             />
             <label>Mật khẩu</label>
             <input
-              id="passwordLogin"
               className="form-control form-login"
               type="password"
-              name="passwordLogin"
+              name="userPassword"
               placeholder="Mật khẩu..."
+              onChange={props.handleOnChange}
             />
             <label className="form-check-label">
               <input
@@ -43,12 +48,17 @@ export default class Login extends React.Component {
               />
               Ghi nhớ đăng nhập
             </label>
-            <button className="btn btn-primary pull-right" type="submit">
+            <button
+              className="btn btn-primary pull-right"
+              onClick={props.handleLogin}
+            >
               Đăng nhập
             </button>
-          </form>
+          </div>
         </div>
-      </div>
-    );
-  }
-}
+      )}
+    </div>
+  );
+};
+
+export default Login;

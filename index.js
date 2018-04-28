@@ -1,12 +1,28 @@
 const express = require('express');
+const passport = require('passport');
 const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
+const cookieSession = require('cookie-session');
+const flash = require('connect-flash')
 //
 const sequelizeConnect = require('./database/mysqlConfig');
+const keys = require('./config/key');
+
+require('./services/passportConfig');
 
 const app = express();
 
 app.use(bodyParser.json());
+app.use(
+  cookieSession({
+    keys: keys.cookieKey,
+    maxAge: 24 * 60 * 60 * 1000,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash())
 
 sequelizeConnect
   .authenticate()

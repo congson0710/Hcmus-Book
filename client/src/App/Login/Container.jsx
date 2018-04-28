@@ -1,7 +1,9 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
 import View from './View';
 
-export default class Login extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
 
@@ -11,6 +13,7 @@ export default class Login extends React.Component {
     };
 
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
   }
 
   handleOnChange(event) {
@@ -18,13 +21,24 @@ export default class Login extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleLogin() {
-    this.props.login(this.state);
+  async handleLogin() {
+    await this.props.login(this.state);
+    this.props.loginUser.isError
+      ? alert(this.props.loginUser.massage)
+      : alert('Login Succfully!!');
+    this.props.history.push('/');
   }
 
   render() {
     return (
-      <View {...this.props} {...this.state} handleLogin={this.handleLogin} />
+      <View
+        {...this.props}
+        {...this.state}
+        handleLogin={this.handleLogin}
+        handleOnChange={this.handleOnChange}
+      />
     );
   }
 }
+
+export default withRouter(Login);
