@@ -82,9 +82,13 @@ const Header = props => {
                   <Link to="/order/history" class="right-align">
                     Thông tin đơn hàng
                   </Link>
-                  <Link to="/logout" class="right-align">
+                  <a
+                    onClick={props.handleLogout}
+                    class="right-align"
+                    style={{ cursor: `pointer` }}
+                  >
                     Đăng xuất
-                  </Link>
+                  </a>
                 </div>
               </li>
             </ul>

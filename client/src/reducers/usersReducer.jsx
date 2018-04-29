@@ -5,6 +5,9 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  LOGOUT_SUCCESS,
+  LOGOUT_REQUEST,
+  LOGOUT_FAIL,
   LOAD_AUTHENTICATION_DATA,
 } from '../actions/actions.type';
 
@@ -86,6 +89,42 @@ const usersReducer = (state = initialState, action) => {
     }
 
     case LOGIN_FAIL: {
+      return {
+        ...state,
+        loginUser: {
+          ...state.loginUser,
+          isLoading: false,
+          isError: true,
+          message: action.payload,
+        },
+      };
+    }
+
+    case LOGOUT_REQUEST: {
+      return {
+        ...state,
+        loginUser: {
+          ...state.loginUser,
+          isLoading: true,
+        },
+      };
+    }
+
+    case LOGOUT_SUCCESS: {
+      sessionStorage.removeItem('appUser');
+      return {
+        ...state,
+        loginUser: {
+          ...state.loginUser,
+          isLoggedin: false,
+          isLoading: false,
+          isError: false,
+          authenUser: undefined,
+        },
+      };
+    }
+
+    case LOGOUT_FAIL: {
       return {
         ...state,
         loginUser: {
