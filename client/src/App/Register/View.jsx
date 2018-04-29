@@ -22,7 +22,7 @@ const Register = props => {
         <Loader content="Loading" active size="large" />
       ) : (
         <div className="col-lg-10 col-lg-offset-1">
-          <h4 style={{ paddingTop: `14px` }}>Tạo tài khoản khách hàng mới</h4>
+          <h2 style={{ paddingTop: `14px` }}>Tạo tài khoản</h2>
           <hr />
           <Form
             className="form-horizontal"

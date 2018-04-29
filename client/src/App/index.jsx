@@ -15,6 +15,8 @@ import RequireLogin from '../components/RequireLogin';
 
 const appUser = JSON.parse(sessionStorage.getItem('appUser'));
 
+console.log(appUser);
+
 const App = props => (
   <div className="main-body">
     <Route exact path="/" component={Home} />
