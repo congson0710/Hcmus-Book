@@ -5,6 +5,7 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  LOAD_AUTHENTICATION_DATA,
 } from '../actions/actions.type';
 
 const initialState = {
@@ -16,7 +17,8 @@ const initialState = {
   },
 
   loginUser: {
-    authenUser: {},
+    authenUser: undefined,
+    isLoggedin: false,
     isLoading: false,
     isError: false,
     message: '',
@@ -75,6 +77,7 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         loginUser: {
           ...state.loginUser,
+          isLoggedin: true,
           isLoading: false,
           isError: false,
           authenUser: action.payload,
@@ -90,6 +93,16 @@ const usersReducer = (state = initialState, action) => {
           isLoading: false,
           isError: true,
           message: action.payload,
+        },
+      };
+    }
+
+    case LOAD_AUTHENTICATION_DATA: {
+      return {
+        ...state,
+        loginUser: {
+          ...state.loginUser,
+          authenUser: action.payload,
         },
       };
     }

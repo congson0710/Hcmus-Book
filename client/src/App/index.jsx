@@ -13,16 +13,6 @@ import Category from './Category';
 import BookDetail from './BookDetail';
 import RequireLogin from '../components/RequireLogin';
 
-const requireLogin = (nextState, replace) => {
-  const appUser = JSON.parse(sessionStorage.getItem('appUser'));
-  if (!appUser) {
-    replace({
-      path: '/login',
-      state: { nextPathname: nextState.location.pathname },
-    });
-  }
-};
-
 const appUser = JSON.parse(sessionStorage.getItem('appUser'));
 
 const App = props => (
