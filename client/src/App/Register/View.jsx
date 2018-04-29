@@ -139,7 +139,10 @@ const Register = props => {
                 >
                   Đăng ký
                 </button>
-                <button className="btn btn-primary btn-lg btn-register">
+                <button
+                  className="btn btn-primary btn-lg btn-register"
+                  onClick={props.handleCancel}
+                >
                   Hủy
                 </button>
               </div>

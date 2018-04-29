@@ -76,10 +76,10 @@ const Header = props => {
                 </button>
                 <div class="dropdown-content dropdown-menu-right">
                   <Link to="/customer" class="right-align">
-                    Thông tin khách hàng
+                    Thông tin
                   </Link>
                   <Link to="/order/history" class="right-align">
-                    Thông tin đơn hàng
+                    Lịch sử
                   </Link>
                   <a
                     onClick={props.handleLogout}

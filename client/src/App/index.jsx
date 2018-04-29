@@ -13,9 +13,9 @@ import Category from './Category';
 import BookDetail from './BookDetail';
 import RequireLogin from '../components/RequireLogin';
 
-const appUser = JSON.parse(sessionStorage.getItem('appUser'));
-
-console.log(appUser);
+const getCurrentUser = () => {
+  return JSON.parse(sessionStorage.getItem('appUser'));
+};
 
 const App = props => (
   <div className="main-body">
@@ -24,22 +24,32 @@ const App = props => (
     <Route exact path="/book-detail/:productID" component={BookDetail} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/category" component={Category} />
-    <RequireLogin authedUser={appUser} exact path="/cart" component={Cart} />
     <RequireLogin
-      authedUser={appUser}
+      authedUser={getCurrentUser()}
+      exact
+      path="/cart"
+      component={Cart}
+    />
+    <RequireLogin
+      authedUser={getCurrentUser()}
       exact
       path="/changepassword"
       component={ChangePassword}
     />
     <RequireLogin
-      authedUser={appUser}
+      authedUser={getCurrentUser()}
       exact
       path="/customer"
       component={Customer}
     />
-    <RequireLogin authedUser={appUser} exact path="/order" component={Order} />
     <RequireLogin
-      authedUser={appUser}
+      authedUser={getCurrentUser()}
+      exact
+      path="/order"
+      component={Order}
+    />
+    <RequireLogin
+      authedUser={getCurrentUser()}
       exact
       path="/order/history"
       component={OrderHistory}

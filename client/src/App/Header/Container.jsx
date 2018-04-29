@@ -1,7 +1,8 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import View from './View';
 
-export default class Header extends React.Component {
+class Header extends React.Component {
   constructor(props) {
     super(props);
 
@@ -13,8 +14,11 @@ export default class Header extends React.Component {
 
   handleLogout() {
     this.props.logout();
+    this.props.history.push('/');
   }
   render() {
     return <View {...this.props} handleLogout={this.handleLogout} />;
   }
 }
+
+export default withRouter(Header);

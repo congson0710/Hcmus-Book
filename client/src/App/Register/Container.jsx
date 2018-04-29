@@ -1,8 +1,9 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import View from './View';
 
-export default class Register extends React.Component {
+class Register extends React.Component {
   constructor(props) {
     super(props);
 
@@ -21,6 +22,7 @@ export default class Register extends React.Component {
     this.handleRegister = this.handleRegister.bind(this);
     this.handleValid = this.handleValid.bind(this);
     this.handleInvalid = this.handleInvalid.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   handleValid() {
@@ -47,6 +49,10 @@ export default class Register extends React.Component {
       : alert('Register Successfully!!');
   }
 
+  handleCancel() {
+    this.props.history.push('/');
+  }
+
   render() {
     return (
       <View
@@ -57,7 +63,10 @@ export default class Register extends React.Component {
         handleOnSelect={this.handleOnSelect}
         handleValid={this.handleValid}
         handleInvalid={this.handleInvalid}
+        handleCancel={this.handleCancel}
       />
     );
   }
 }
+
+export default withRouter(Register);
