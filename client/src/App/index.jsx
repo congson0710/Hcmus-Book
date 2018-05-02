@@ -11,6 +11,7 @@ import OrderHistory from './OrderHistory';
 import Login from './Login';
 import Category from './Category';
 import BookDetail from './BookDetail';
+import Post from './Post';
 import RequireLogin from '../components/RequireLogin';
 
 const getCurrentUser = () => {
@@ -53,6 +54,12 @@ const App = props => (
       exact
       path="/order/history"
       component={OrderHistory}
+    />
+    <RequireLogin
+      authedUser={getCurrentUser()}
+      exact
+      path="/post"
+      component={Post}
     />
   </div>
 );

@@ -12,9 +12,10 @@ class Header extends React.Component {
     this.props.loadAuthedData();
   }
 
-  handleLogout() {
-    this.props.logout();
+  async handleLogout() {
+    await this.props.logout();
     this.props.history.push('/');
+    alert('Logout Successfully!!');
   }
   render() {
     return <View {...this.props} handleLogout={this.handleLogout} />;
