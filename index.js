@@ -3,8 +3,9 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
 const cookieSession = require('cookie-session');
-const flash = require('connect-flash');
 const fileUpload = require('express-fileupload');
+const flash = require('connect-flash');
+
 //
 const sequelizeConnect = require('./database/mysqlConfig');
 const keys = require('./config/key');

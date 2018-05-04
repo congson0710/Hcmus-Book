@@ -1,5 +1,6 @@
 import React from 'react';
 import { EditorState } from 'draft-js';
+import { firebase } from '../../utils';
 
 import View from './View';
 
@@ -12,14 +13,16 @@ class Post extends React.Component {
       title: '',
       bookName: '',
       price: '',
-      poster: [],
-      imgSrc: '',
+      poster: '',
+      uploading: false,
     };
 
     this.handleDescription = this.handleDescription.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
-    this.handleUploadImage = this.handleUploadImage.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
+    this.handleUploadError = this.handleUploadError.bind(this);
+    this.handleUploadSuccess = this.handleUploadSuccess.bind(this);
+    this.handleUploadStart = this.handleUploadStart.bind(this);
   }
 
   handleDescription(editorState) {
@@ -30,18 +33,33 @@ class Post extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleUploadImage(event) {
-    const file = event.target.files[0];
-    this.setState({
-      poster: event.target.files,
-      imgSrc: window.URL.createObjectURL(file),
-    });
-  }
-
+  // post go here
   handleUpload() {
     console.log(this.state.poster);
     this.props.upload(this.state.poster);
   }
+
+  handleUploadStart() {
+    this.setState({ poster: '', uploading: true });
+  }
+
+  handleUploadError = error => {
+    console.error('fail to upload', error);
+  };
+
+  handleUploadSuccess = filename => {
+    this.setState({ uploading: false });
+    firebase
+      .storage()
+      .ref('images')
+      .child(filename)
+      .getDownloadURL()
+      .then(url => {
+        this.setState({
+          poster: [...this.state.poster, url],
+        });
+      });
+  };
 
   render() {
     return (
@@ -52,6 +70,9 @@ class Post extends React.Component {
         handleOnChange={this.handleOnChange}
         handleUploadImage={this.handleUploadImage}
         handleUpload={this.handleUpload}
+        handleUploadError={this.handleUploadError}
+        handleUploadSuccess={this.handleUploadSuccess}
+        handleUploadStart={this.handleUploadStart}
       />
     );
   }

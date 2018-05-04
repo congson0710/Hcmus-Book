@@ -1,7 +1,10 @@
 import React from 'react';
-import { Segment, Grid, Button } from 'semantic-ui-react';
+import { Segment, Grid, Button, Loader } from 'semantic-ui-react';
 import { Editor } from 'react-draft-wysiwyg';
 import { Form } from 'formsy-semantic-ui-react';
+import FileUploader from 'react-firebase-file-uploader';
+import { firebase } from '../../utils';
+
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 const Post = props => {
@@ -31,33 +34,39 @@ const Post = props => {
                 />
               </Form>
               <Form style={{ marginTop: `12px` }}>
-                {/* hình ảnh */}
                 <div>
                   <label>Hình ảnh</label>
                 </div>
-                <input
-                  className="input-file"
-                  name="myFile"
-                  accept="image/*"
-                  type="file"
-                  onChange={props.handleUploadImage}
-                  id="fileInput"
-                />
                 <Form.Field>
                   <Segment className="segment-image">
-                    {props.imgSrc === '' ? (
-                      <label htmlFor="fileInput" className="label-input">
-                        <i className="fa fa-camera" />
-                        Chọn 1 ảnh
-                      </label>
+                    {props.poster === '' ? (
+                      props.uploading ? (
+                        <Loader active content="Loading" large />
+                      ) : (
+                        <label htmlFor="fileInput" className="label-input">
+                          <i className="fa fa-camera" />
+                          Chọn 1 ảnh
+                        </label>
+                      )
                     ) : (
                       <img
-                        src={props.imgSrc}
+                        src={props.poster}
                         alt="preview"
                         className="image-preview"
                       />
                     )}
                   </Segment>
+                  <FileUploader
+                    className="input-file"
+                    id="fileInput"
+                    accecpt="image/*"
+                    name="poster"
+                    randomizeFilename
+                    storageRef={firebase.storage().ref('images')}
+                    onUploadStart={props.handleUploadStart}
+                    onUploadError={props.handleUploadError}
+                    onUploadSuccess={props.handleUploadSuccess}
+                  />
                 </Form.Field>
                 <Form.Field>
                   <div>

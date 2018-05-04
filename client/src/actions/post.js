@@ -15,7 +15,7 @@ export const upload = infoInput => async dispatch => {
 
   try {
     const response = await axios.post('/api/upload', formData, config);
-
+    console.log(response);
     dispatch({
       type: POST_SUCCESS,
       payload: response.data,
