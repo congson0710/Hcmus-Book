@@ -9,11 +9,12 @@ class Post extends React.Component {
     super(props);
 
     this.state = {
-      description: EditorState.createEmpty(),
       title: '',
-      bookName: '',
+      name: '',
       price: '',
+      cond: '',
       poster: '',
+      description: EditorState.createEmpty(),
       uploading: false,
     };
 
@@ -35,8 +36,7 @@ class Post extends React.Component {
 
   // post go here
   handleUpload() {
-    console.log(this.state.poster);
-    this.props.upload(this.state.poster);
+    this.props.upload(this.state);
   }
 
   handleUploadStart() {
@@ -48,7 +48,6 @@ class Post extends React.Component {
   };
 
   handleUploadSuccess = filename => {
-    this.setState({ uploading: false });
     firebase
       .storage()
       .ref('images')
@@ -57,6 +56,7 @@ class Post extends React.Component {
       .then(url => {
         this.setState({
           poster: [...this.state.poster, url],
+          uploading: false,
         });
       });
   };

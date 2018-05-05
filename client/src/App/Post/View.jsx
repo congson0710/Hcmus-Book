@@ -7,6 +7,29 @@ import { firebase } from '../../utils';
 
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
+const cond = [
+  {
+    key: 7,
+    value: 7,
+    text: '7',
+  },
+  {
+    key: 8,
+    value: 8,
+    text: '8',
+  },
+  {
+    key: 9,
+    value: 9,
+    text: '9',
+  },
+  {
+    key: 9.5,
+    value: 9.5,
+    text: '9.5',
+  },
+];
+
 const Post = props => {
   return (
     <div class="container">
@@ -24,12 +47,19 @@ const Post = props => {
                 />
                 <Form.Input
                   label="Tên sách"
-                  name="bookName"
+                  name="name"
                   onChange={props.handleOnChange}
                 />
                 <Form.Input
                   label="Giá"
                   name="price"
+                  onChange={props.handleOnChange}
+                />
+                <Form.Dropdown
+                  name="cond"
+                  label="Tình trạng"
+                  options={cond}
+                  selection
                   onChange={props.handleOnChange}
                 />
               </Form>
@@ -94,9 +124,21 @@ const Post = props => {
               </Form>
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row>
+          <Grid.Row style={{ textAlign: `center` }}>
             <Grid.Column>
-              <Button onClick={props.handleUpload}>Upload</Button>
+              <Button
+                className="btn btn-primary btn-lg btn-register"
+                color="green"
+                onClick={props.handleUpload}
+              >
+                Đăng bán
+              </Button>
+              <Button
+                className="btn btn-primary btn-lg btn-register"
+                color="red"
+              >
+                Hủy
+              </Button>
             </Grid.Column>
           </Grid.Row>
         </Grid>

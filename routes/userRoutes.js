@@ -15,6 +15,7 @@ module.exports = app => {
   });
 
   app.post('/api/login', passport.authenticate('local'), (req, res) => {
+    console.log(req.user);
     req.user
       ? res.send(req.user)
       : res.send('Tài khoản hoặc mật khẩu không chính xác');
@@ -22,6 +23,6 @@ module.exports = app => {
 
   app.get('/api/logout', (req, res) => {
     req.logout();
-    res.redirect('/');
+    res.send(req.user);
   });
 };

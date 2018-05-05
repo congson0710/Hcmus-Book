@@ -67,8 +67,15 @@ const Header = props => {
               </div>
             </li>
           </ul>
+
           {props.loginUser.authenUser ? (
             <ul className="nav navbar-nav navbar-right">
+              <li className="menu-li">
+                <Link to="/post">
+                  <i className="fa fa-upload" />
+                  <b>ĐĂNG BÁN</b>
+                </Link>
+              </li>
               <li class="dropdown dropdown-right">
                 <button class="dropbtn">
                   <i class="fa fa fa-user" aria-hidden="true" />
@@ -94,12 +101,18 @@ const Header = props => {
           ) : (
             <ul className="nav navbar-nav navbar-right">
               <li className="menu-li">
+                <Link to="/post">
+                  <i className="fa fa-upload" />
+                  <b>ĐĂNG BÁN</b>
+                </Link>
+              </li>
+              <li className="menu-li">
                 <Link to="/register">
                   <i className="fa fa-pencil-square-o" />
                   <b>ĐĂNG KÝ</b>
                 </Link>
               </li>
-              <li className="dropdown menu-li" style={{ paddingRight: `15px` }}>
+              <li className="menu-li" style={{ paddingRight: `15px` }}>
                 <Link to="/login">
                   <i className="fa fa-sign-in" /> <b>ĐĂNG NHẬP</b>
                 </Link>
