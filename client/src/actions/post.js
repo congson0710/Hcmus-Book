@@ -12,7 +12,7 @@ export const upload = infoInput => async dispatch => {
   const post = {
     title: infoInput.title,
     name: infoInput.name,
-    pirce: infoInput.price,
+    price: infoInput.price,
     cond: infoInput.cond,
     image: infoInput.poster,
     description: draftToHtml(

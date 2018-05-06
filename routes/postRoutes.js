@@ -3,11 +3,21 @@ const Sequelize = require('sequelize');
 
 const requireLogin = require('../middlewares/requireLogin');
 const sequelizeConnect = require('../database/mysqlConfig');
-const Users = require('../models/Users');
+const Posts = require('../models/Posts');
 
 module.exports = app => {
   app.post('/api/upload', requireLogin, async (req, res) => {
-    console.log('thong tin:', req.body);
-    console.log('nguoi dung:', req.user);
+    const { title, name, price, cond, image, description } = req.body;
+    const createdPost = await Posts.create({
+      title,
+      name,
+      price,
+      cond,
+      image: image[0],
+      description,
+      postBy: req.user.userID,
+    });
+
+    res.send(createdPost);
   });
 };

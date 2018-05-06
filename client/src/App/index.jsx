@@ -12,6 +12,7 @@ import Login from './Login';
 import Category from './Category';
 import BookDetail from './BookDetail';
 import Post from './Post';
+import Admin from './Admin';
 import RequireLogin from '../components/RequireLogin';
 
 const getCurrentUser = () => {
@@ -25,6 +26,7 @@ const App = props => (
     <Route exact path="/book-detail/:productID" component={BookDetail} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/category" component={Category} />
+    <Route exact path="/admin" component={Admin} />
 
     <RequireLogin
       authedUser={getCurrentUser()}
