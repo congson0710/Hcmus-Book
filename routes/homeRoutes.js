@@ -1,5 +1,8 @@
+const Posts = require('../models/Posts');
+
 module.exports = app => {
-  app.get('/', (req, res) => {
-    res.send({ hi: 'there' });
+  app.get('/api/home/post', async (req, res) => {
+    const result = await Posts.findAll({ where: { status: 'APPROVE' } });
+    res.status(200).send(result);
   });
 };

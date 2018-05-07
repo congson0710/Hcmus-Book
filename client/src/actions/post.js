@@ -2,7 +2,14 @@ import axios from 'axios';
 import draftToHtml from 'draftjs-to-html';
 import { convertToRaw } from 'draft-js';
 
-import { POST_REQUEST, POST_SUCCESS, POST_FAILURE } from './actions.type';
+import {
+  POST_REQUEST,
+  POST_SUCCESS,
+  POST_FAILURE,
+  GET_POST_DETAIL_REQUEST,
+  GET_POST_DETAIL_SUCCESS,
+  GET_POST_DETAIL_FAIL,
+} from './actions.type';
 
 export const upload = infoInput => async dispatch => {
   dispatch({
@@ -30,6 +37,30 @@ export const upload = infoInput => async dispatch => {
   } catch (error) {
     dispatch({
       type: POST_FAILURE,
+      payload: error.response.data,
+    });
+  }
+};
+
+export const getDetailPost = id => async dispatch => {
+  dispatch({
+    type: GET_POST_DETAIL_REQUEST,
+  });
+
+  const post = {
+    id,
+  };
+
+  try {
+    const response = await axios.post('/api/post-detail', post);
+
+    dispatch({
+      type: GET_POST_DETAIL_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_POST_DETAIL_FAIL,
       payload: error.response.data,
     });
   }

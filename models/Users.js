@@ -13,5 +13,6 @@ module.exports = sequelizeConnect.define('users', {
   userPassword: { type: Sequelize.STRING, allowNull: false },
   userAddress: { type: Sequelize.STRING, allowNull: false },
   gender: { type: Sequelize.STRING, allowNull: false },
+  phone: { type: Sequelize.STRING, allowNull: false },
   isAdmin: { type: Sequelize.TINYINT, allowNull: true },
 });

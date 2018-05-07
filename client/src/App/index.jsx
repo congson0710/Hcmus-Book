@@ -23,7 +23,7 @@ const App = props => (
   <div className="main-body">
     <Route exact path="/" component={Home} />
     <Route exact path="/register" component={Register} />
-    <Route exact path="/book-detail/:productID" component={BookDetail} />
+    <Route exact path="/book-detail/:bookID" component={BookDetail} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/category" component={Category} />
     <Route exact path="/admin" component={Admin} />

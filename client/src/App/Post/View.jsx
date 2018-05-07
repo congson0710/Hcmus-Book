@@ -23,11 +23,6 @@ const cond = [
     value: 9,
     text: '9',
   },
-  {
-    key: 9.5,
-    value: 9.5,
-    text: '9.5',
-  },
 ];
 
 const Post = props => {
@@ -63,7 +58,7 @@ const Post = props => {
                   onChange={props.handleOnChange}
                 />
               </Form>
-              <Form style={{ marginTop: `12px` }}>
+              <Form style={{ marginTop: `12px`, width: `80%` }}>
                 <div>
                   <label>Hình ảnh</label>
                 </div>
@@ -98,6 +93,8 @@ const Post = props => {
                     onUploadSuccess={props.handleUploadSuccess}
                   />
                 </Form.Field>
+              </Form>
+              <Form>
                 <Form.Field>
                   <div>
                     <label>Thông tin về sách</label>

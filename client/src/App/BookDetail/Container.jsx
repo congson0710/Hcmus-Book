@@ -1,9 +1,9 @@
 import React from 'react';
 import View from './View';
 
-class Home extends React.Component {
+class BookDetail extends React.Component {
   componentWillMount() {
-    this.props.getHomePost();
+    this.props.getDetailPost(this.props.match.params.bookID);
   }
 
   render() {
@@ -11,4 +11,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default BookDetail;
