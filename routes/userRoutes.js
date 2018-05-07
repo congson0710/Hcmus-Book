@@ -23,17 +23,17 @@ module.exports = app => {
       : res.send('Tài khoản hoặc mật khẩu không chính xác');
   });
 
-  app.get('/api/post-management', requireLogin, async (req, res) => {
-    const { userID } = req.user;
-    const result = await Posts.findAll({ where: { postBy: userID } });
-    res.send(result);
-  });
+  // app.get('/api/post-management', requireLogin, async (req, res) => {
+  //   const { userID } = req.user;
+  //   const result = await Posts.findAll({ where: { postBy: userID } });
+  //   res.send(result);
+  // });
 
-  app.get('/api/order-management', requireLogin, async (req, res) => {
-    const { userID } = req.user;
-    const result = await Orders.findAll({ where: { postBy: userID } });
-    res.send(result);
-  });
+  // app.get('/api/order-management', requireLogin, async (req, res) => {
+  //   const { userID } = req.user;
+  //   const result = await Orders.findAll({ where: { postBy: userID } });
+  //   res.send(result);
+  // });
 
   app.get('/api/logout', (req, res) => {
     req.logout();

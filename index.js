@@ -36,6 +36,7 @@ sequelizeConnect
 require('./routes/homeRoutes')(app);
 require('./routes/userRoutes')(app);
 require('./routes/postRoutes')(app);
+require('./routes/adminRoutes')(app);
 
 const PORT = process.env.NODE_ENV || 5000;
 app.listen(PORT);

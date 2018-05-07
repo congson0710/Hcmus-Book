@@ -2,6 +2,12 @@ const Sequelize = require('sequelize');
 const sequelizeConnect = require('../database/mysqlConfig');
 
 module.exports = sequelizeConnect.define('posts', {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    allowNull: false,
+    primaryKey: true,
+  },
   title: { type: Sequelize.INTEGER, allowNull: false },
   name: { type: Sequelize.STRING, allowNull: false },
   price: { type: Sequelize.INTEGER, allowNull: false },

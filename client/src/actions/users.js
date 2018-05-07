@@ -51,7 +51,7 @@ export const login = loginInfo => async dispatch => {
 
 export const logout = () => async dispatch => {
   dispatch({
-    type: LOGIN_REQUEST,
+    type: LOGOUT_REQUEST,
   });
 
   try {

@@ -6,7 +6,7 @@ import Posts from './Posts';
 const Admin = props => {
   const { activeItem, handleItemClick, currentMenu } = props;
   return (
-    <Segment>
+    <Segment loading={props.allPost.isLoading || props.approvePost.isLoading}>
       <Menu attached="top" tabular>
         <Menu.Item
           name="posts"

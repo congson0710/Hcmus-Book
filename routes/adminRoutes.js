@@ -4,11 +4,11 @@ const Posts = require('../models/Posts');
 module.exports = app => {
   // post
   app.get('/api/admin-management', requireLogin, async (req, res) => {
-    const result = await Posts.findAll({ where: { status: 'PENDING' } });
+    const result = await Posts.findAll();
     res.send(result);
   });
 
-  app.post('./api/admin-approve-post', requireLogin, async (req, res) => {
+  app.post('/api/admin/approve/post', requireLogin, async (req, res) => {
     const { id } = req.body;
     const result = await Posts.update({ status: 'APPROVE' }, { where: { id } });
     res.send(result);

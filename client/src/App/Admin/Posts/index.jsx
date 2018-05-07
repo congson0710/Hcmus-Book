@@ -13,9 +13,9 @@ const Posts = props => {
           <Table.HeaderCell>Phê duyệt</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
-      {/* <Table.Body>
-        {props.eventForApproving.allEvent.content.map(post => {
-          return post.published ? (
+      <Table.Body>
+        {props.allPost.posts.map(post => {
+          return (
             <Table.Row key={Math.random()}>
               <Table.Cell>
                 <Header as="h2" textAlign="center">
@@ -23,13 +23,7 @@ const Posts = props => {
                 </Header>
               </Table.Cell>
               <Table.Cell singleLine>{post.title}</Table.Cell>
-              <Table.Cell singleLine>
-                {post.approved ? (
-                  <div>Đã phê duyệt</div>
-                ) : (
-                  <div>Chưa duyệt</div>
-                )}
-              </Table.Cell>
+              <Table.Cell singleLine>{post.status}</Table.Cell>
               <Table.Cell>
                 <Button
                   onClick={() => {
@@ -38,35 +32,23 @@ const Posts = props => {
                 >
                   Chi tiết
                 </Button>
-                {post.id === props.isShowDetail && (
-                  <div className="mainModal">
-                    <div className="contentModal">
-                      <h2>Detail goes here</h2>
-                      <div className="btnCancel">
-                        <Button onClick={() => props.handlePreview(-1)}>
-                          Hủy
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </Table.Cell>
               <Table.Cell>
                 <Button
                   onClick={() => {
-                    props.handleApprove(post);
+                    props.handleApprove(post.id);
                   }}
                   loading={
-                    props.approveEvent.isLoading && props.idApprove === post.id
+                    props.approvePost.isLoading && post.id === props.idApprove
                   }
                 >
                   Phê Duyệt
                 </Button>
               </Table.Cell>
             </Table.Row>
-          ) : null;
+          );
         })}
-      </Table.Body> */}
+      </Table.Body>
     </Table>
   );
 };
