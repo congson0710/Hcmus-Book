@@ -3,7 +3,7 @@ import View from './View';
 
 class BookDetail extends React.Component {
   componentWillMount() {
-    this.props.getDetailPost(this.props.match.params.bookID);
+    this.props.getBookDetail(this.props.match.params.bookID);
   }
 
   render() {

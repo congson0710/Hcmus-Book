@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 
-import { getDetailPost } from '../../actions/post';
+import { getBookDetail } from '../../actions/book';
 import BookDetail from './Container';
 
-const mapStateToProps = ({ post }) => ({
-  detailPost: post.detailPost,
+const mapStateToProps = ({ book }) => ({
+  bookDetail: book.bookDetail,
 });
 
 const mapDispatchToProps = dispatch => ({
-  getDetailPost: id => dispatch(getDetailPost(id)),
+  getBookDetail: id => dispatch(getBookDetail(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookDetail);

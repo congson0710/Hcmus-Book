@@ -13,10 +13,8 @@ const PostCard = props => {
           <Card.Meta>Tên sách: {post.name}</Card.Meta>
         </Card.Content>
         <Card.Content extra>
-          <a>
-            <Icon name="tags" />
-            Giá: {post.price} VNĐ
-          </a>
+          <Icon name="tags" />
+          Giá: {post.price} VNĐ
         </Card.Content>
       </Card>
     </Link>

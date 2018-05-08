@@ -1,6 +1,7 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
-import Card from './Card';
+import { Grid, Menu } from 'semantic-ui-react';
+import PostCard from './PostCard';
+import BookCard from './BookCard';
 
 const Home = props => {
   return (
@@ -126,21 +127,45 @@ const Home = props => {
             </form>
           </div>
         </div>
-        <h4 style={{ paddingTop: `14px` }}>
-          <b>Bán chạy trong tuần</b>
-        </h4>
-        <hr />
-        <Grid columns="4">
-          {props.homePost.posts.map(row => (
-            <Grid.Row key={Math.random()}>
-              {row.map(post => (
-                <Grid.Column key={Math.random()}>
-                  <Card post={post} />
-                </Grid.Column>
-              ))}
-            </Grid.Row>
-          ))}
-        </Grid>
+        <Menu pointing secondary>
+          <Menu.Item
+            content="Sách mới"
+            name="book"
+            active={props.activeItem === 'book'}
+            onClick={props.handleItemClick}
+          />
+          <Menu.Item
+            content="Mua/bán sách cũ"
+            name="post"
+            active={props.activeItem === 'post'}
+            onClick={props.handleItemClick}
+          />
+        </Menu>
+        {props.currentMenu === 'post' ? (
+          <Grid columns="4" style={{ marginLeft: `4px` }}>
+            {props.homePost.posts.map(row => (
+              <Grid.Row key={Math.random()}>
+                {row.map(post => (
+                  <Grid.Column key={Math.random()}>
+                    <PostCard post={post} />
+                  </Grid.Column>
+                ))}
+              </Grid.Row>
+            ))}
+          </Grid>
+        ) : (
+          <Grid columns="4" style={{ marginLeft: `4px` }}>
+            {props.homeBook.books.map(row => (
+              <Grid.Row key={Math.random()}>
+                {row.map(book => (
+                  <Grid.Column key={Math.random()}>
+                    <BookCard book={book} />
+                  </Grid.Column>
+                ))}
+              </Grid.Row>
+            ))}
+          </Grid>
+        )}
       </div>
     </div>
   );

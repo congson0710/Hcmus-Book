@@ -33,6 +33,7 @@ sequelizeConnect
     console.error('Unable to connect to the database:', err);
   });
 
+require('./routes/bookRoutes')(app);
 require('./routes/homeRoutes')(app);
 require('./routes/userRoutes')(app);
 require('./routes/postRoutes')(app);

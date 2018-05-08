@@ -516,6 +516,7 @@ td.middle {
 
 .main-body {
   min-height: 60vh;
+  margin-bottom: 24px;
 }
 
 .editor {
@@ -566,4 +567,25 @@ td.middle {
   min-height: 48px !important;
   height: 24px !important;
   background: #ffffff !important;
+}
+
+.food-info {
+  background: #fff;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.food-head img {
+  margin-left: -14px;
+}
+
+.food-head h3 {
+  margin-top: 30px;
+  margin-bottom: 24px;
+}
+
+.food-head p {
+  margin-top: 8px;
+  font-size: 16px;
+  height: 100%;
 }
