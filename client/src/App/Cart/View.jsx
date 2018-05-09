@@ -150,7 +150,7 @@ const Cart = props => {
                 </td>
                 <td className="text-center">
                   <h4>
-                    <strong>{props.tempTotal + Number(props.area)}</strong>
+                    <strong>{props.area === 'Free' ? props.tempTotal : props.tempTotal + Number(props.area)}</strong>
                   </h4>
                 </td>
                 <td />

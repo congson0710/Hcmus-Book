@@ -42,3 +42,4 @@ export const GET_BOOK_DETAIL_FAIL = 'GET_POST_DETAIL_FAIL';
 //
 export const UPDATE_CART = 'UPDATE_CART';
 export const REMOVE_CART = 'REMOVE_CART';
+//

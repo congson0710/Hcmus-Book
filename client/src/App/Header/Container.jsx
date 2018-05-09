@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+
 import View from './View';
 
 class Header extends React.Component {
@@ -9,6 +10,8 @@ class Header extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
   componentWillMount() {
+    const currentCart = JSON.parse(localStorage.getItem('cart'))
+    this.props.updateCart(currentCart)
     this.props.loadAuthedData();
   }
 

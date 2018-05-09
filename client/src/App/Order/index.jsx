@@ -1,3 +1,14 @@
-import View from './View';
+import { connect } from 'react-redux';
 
-export default View;
+import { loadAuthedData } from '../../actions/app';
+import Order from './Container';
+
+const mapStateToProps = ({ users }) => ({
+  loginUser: users.loginUser,
+});
+
+const mapDispatchToProps = dispatch => ({
+  loadAuthedData: () => dispatch(loadAuthedData()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Order);
