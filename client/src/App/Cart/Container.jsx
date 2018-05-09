@@ -23,6 +23,11 @@ class Cart extends React.Component {
     this.props.updateCart(currentCart);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { currentCart } = nextProps.appCart;
+    this.handleTempTotal(currentCart);
+  }
+
   handleTempTotal(currentCart) {
     const tempTotal = currentCart
       .map(book => {
