@@ -141,19 +141,20 @@ const Home = props => {
             onClick={props.handleItemClick}
           />
         </Menu>
-        {props.currentMenu === 'post' ? (
-          <Grid columns="4" style={{ marginLeft: `4px` }}>
-            {props.homePost.posts.map(row => (
-              <Grid.Row key={Math.random()}>
-                {row.map(post => (
-                  <Grid.Column key={Math.random()}>
-                    <PostCard post={post} />
-                  </Grid.Column>
-                ))}
-              </Grid.Row>
-            ))}
-          </Grid>
-        ) : (
+        {props.currentMenu === 'post' ? null : (
+          // (
+          //   <Grid columns="4" style={{ marginLeft: `4px` }}>
+          //     {props.homePost.posts.map(row => (
+          //       <Grid.Row key={Math.random()}>
+          //         {row.map(post => (
+          //           <Grid.Column key={Math.random()}>
+          //             <PostCard post={post} />
+          //           </Grid.Column>
+          //         ))}
+          //       </Grid.Row>
+          //     ))}
+          //   </Grid>
+          // )
           <Grid columns="4" style={{ marginLeft: `4px` }}>
             {props.homeBook.books.map(row => (
               <Grid.Row key={Math.random()}>

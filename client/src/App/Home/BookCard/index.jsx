@@ -7,7 +7,7 @@ const BookCard = props => {
   return (
     <Link to={`/book-detail/${book.bookID}`}>
       <Card>
-        <Image src={book.bookImage} style={{ height: `180px` }} />
+        <Image src={book.bookImage} style={{ height: `240px` }} />
         <Card.Content>
           <Card.Header className="card-header">{book.bookName}</Card.Header>
           <Card.Description>{book.bookDescription}</Card.Description>

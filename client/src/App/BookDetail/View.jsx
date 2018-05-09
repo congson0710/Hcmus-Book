@@ -29,7 +29,7 @@ const Detail = props => {
               <p>
                 <strong>
                   <i className="fa fa-dollar" aria-hidden="true" /> Giá bán
-                </strong>: {book.bookPrice}
+                </strong>: {book.bookPrice} VNĐ
               </p>
               <p>
                 <strong>
@@ -46,7 +46,10 @@ const Detail = props => {
                 className="text-center"
                 style={{ marginTop: `32px`, marginBottom: `32px` }}
               >
-                <button className="btn btn-success btn-lg">
+                <button
+                  className="btn btn-success btn-lg"
+                  onClick={() => props.handleAddToCart(book)}
+                >
                   Thêm vào giỏ hàng
                 </button>
               </div>

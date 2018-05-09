@@ -27,13 +27,8 @@ const App = props => (
     <Route exact path="/login" component={Login} />
     <Route exact path="/category" component={Category} />
     <Route exact path="/admin" component={Admin} />
+    <Route exact path="/cart" component={Cart}/>
 
-    <RequireLogin
-      authedUser={getCurrentUser()}
-      exact
-      path="/cart"
-      component={Cart}
-    />
     <RequireLogin
       authedUser={getCurrentUser()}
       exact

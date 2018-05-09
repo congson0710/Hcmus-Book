@@ -41,7 +41,9 @@ const Header = props => {
               <Link to="/cart">
                 <i className="fa fa-shopping-cart" aria-hidden="true" />
                 Giỏ hàng
-                <b className="header-cart-count">0</b>
+                <b className="header-cart-count">
+                  {props.appCart.onCart ? '1' : '0'}
+                </b>
               </Link>
             </div>
           </div>
@@ -76,21 +78,21 @@ const Header = props => {
                   <b>ĐĂNG BÁN</b>
                 </Link>
               </li>
-              <li class="dropdown dropdown-right">
-                <button class="dropbtn">
-                  <i class="fa fa fa-user" aria-hidden="true" />
-                  <b>NGƯỜI DÙNG</b> <b class="caret" />
+              <li className="dropdown dropdown-right">
+                <button className="dropbtn">
+                  <i className="fa fa fa-user" aria-hidden="true" />
+                  <b>NGƯỜI DÙNG</b> <b className="caret" />
                 </button>
-                <div class="dropdown-content dropdown-menu-right">
-                  <Link to="/customer" class="right-align">
+                <div className="dropdown-content dropdown-menu-right">
+                  <Link to="/customer" className="right-align">
                     Thông tin
                   </Link>
-                  <Link to="/order/history" class="right-align">
+                  <Link to="/order/history" className="right-align">
                     Lịch sử
                   </Link>
                   <a
                     onClick={props.handleLogout}
-                    class="right-align"
+                    className="right-align"
                     style={{ cursor: `pointer` }}
                   >
                     Đăng xuất
