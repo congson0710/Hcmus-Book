@@ -5,22 +5,22 @@ import { Dropdown } from 'semantic-ui-react';
 const area = [
   {
     key: 1,
-    value: 'Free',
+    value: 'q1',
     text: 'Quận 1',
   },
   {
     key: 2,
-    value: '30000',
+    value: 'q2',
     text: 'Quận 2',
   },
   {
     key: 3,
-    value: '30000',
+    value: 'q3',
     text: 'Quận 3',
   },
   {
     key: 4,
-    value: '30000',
+    value: 'q4',
     text: 'Quận 4',
   },
 ];
@@ -137,7 +137,13 @@ const Cart = props => {
                 </td>
                 <td className="text-center">
                   <h5>
-                    <strong>{props.area}</strong>
+                    <strong>
+                      {props.area === ''
+                        ? '0'
+                        : props.area === 'q1'
+                          ? 'Free'
+                          : '30000'}
+                    </strong>
                   </h5>
                 </td>
                 <td />
@@ -150,7 +156,11 @@ const Cart = props => {
                 </td>
                 <td className="text-center">
                   <h4>
-                    <strong>{props.area === 'Free' ? props.tempTotal : props.tempTotal + Number(props.area)}</strong>
+                    <strong>
+                      {props.area === 'q1' || props.area === ''
+                        ? props.tempTotal
+                        : props.tempTotal + 30000}
+                    </strong>
                   </h4>
                 </td>
                 <td />
@@ -159,7 +169,11 @@ const Cart = props => {
           </table>
           <div className="pull-right" style={{ marginBottom: `20px` }}>
             <Link to="/order">
-              <button type="button" className="btn btn-success btn-lg">
+              <button
+                type="button"
+                className="btn btn-success btn-lg"
+                onClick={props.handleConfirm}
+              >
                 Xác nhận
               </button>
             </Link>

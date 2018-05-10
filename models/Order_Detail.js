@@ -10,4 +10,5 @@ module.exports = sequelizeConnect.define('order_detail', {
   },
   orderID: { type: Sequelize.STRING, allowNull: false },
   bookID: { type: Sequelize.INTEGER, allowNull: false },
+  quantityOrder: { type: Sequelize.INTEGER, allowNull: false },
 });

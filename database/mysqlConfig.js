@@ -6,6 +6,7 @@ module.exports = new Sequelize('hcmus-book', 'root', '123456', {
   dialect: 'mysql',
   define: {
     timestamps: false,
+    freezeTableName: true,
   },
   operatorsAliases: false,
 
