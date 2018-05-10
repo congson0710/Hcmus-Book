@@ -2,9 +2,15 @@ import {
   GET_ALL_POST_FAIL,
   GET_ALL_POST_SUCCESS,
   GET_ALL_POST_REQUEST,
+  GET_HOME_ORDER_REQUEST,
+  GET_HOME_ORDER_SUCCESS,
+  GET_HOME_ORDER_FAIL,
   APPROVE_REQUEST,
   APPROVE_SUCCESS,
   APPROVE_FAIL,
+  APPROVE_ORDER_REQUEST,
+  APPROVE_ORDER_SUCCESS,
+  APPROVE_ORDER_FAIL,
 } from '../actions/actions.type';
 
 const initialState = {
@@ -15,8 +21,22 @@ const initialState = {
     message: '',
   },
 
+  allOrder: {
+    orders: [],
+    isLoading: false,
+    isError: false,
+    message: '',
+  },
+
   approvePost: {
     post: {},
+    isLoading: false,
+    isError: false,
+    message: '',
+  },
+
+  approveOrder: {
+    order: {},
     isLoading: false,
     isError: false,
     message: '',
@@ -59,6 +79,40 @@ const adminReducer = (state = initialState, action) => {
       };
     }
 
+    case GET_HOME_ORDER_REQUEST: {
+      return {
+        ...state,
+        allOrder: {
+          ...state.allOrder,
+          isLoading: true,
+        },
+      };
+    }
+
+    case GET_HOME_ORDER_SUCCESS: {
+      return {
+        ...state,
+        allOrder: {
+          ...state.allOrder,
+          isLoading: false,
+          isError: false,
+          orders: action.payload,
+        },
+      };
+    }
+
+    case GET_HOME_ORDER_FAIL: {
+      return {
+        ...state,
+        allOrder: {
+          ...state.allOrder,
+          isLoading: false,
+          isError: true,
+          message: action.payload,
+        },
+      };
+    }
+
     case APPROVE_REQUEST: {
       return {
         ...state,
@@ -86,6 +140,40 @@ const adminReducer = (state = initialState, action) => {
         ...state,
         approvePost: {
           ...state.approvePost,
+          isLoading: false,
+          isError: true,
+          message: action.payload,
+        },
+      };
+    }
+
+    case APPROVE_ORDER_REQUEST: {
+      return {
+        ...state,
+        approveOrder: {
+          ...state.approveOrder,
+          isLoading: true,
+        },
+      };
+    }
+
+    case APPROVE_ORDER_SUCCESS: {
+      return {
+        ...state,
+        approveOrder: {
+          ...state.approveOrder,
+          isLoading: false,
+          isError: false,
+          order: action.payload,
+        },
+      };
+    }
+
+    case APPROVE_ORDER_FAIL: {
+      return {
+        ...state,
+        approveOrder: {
+          ...state.approveOrder,
           isLoading: false,
           isError: true,
           message: action.payload,

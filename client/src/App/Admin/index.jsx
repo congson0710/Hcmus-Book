@@ -1,15 +1,24 @@
 import { connect } from 'react-redux';
-import { getAllPosts, approve } from '../../actions/admin';
+import {
+  getAllPosts,
+  approvePost,
+  getAllOrders,
+  approveOrder,
+} from '../../actions/admin';
 import Admin from './Container';
 
 const mapStateToProps = ({ admin }) => ({
   allPost: admin.allPost,
-  approvePost: admin.approvePost,
+  allOrder: admin.allOrder,
+  approvePostSuccess: admin.approvePost,
+  approveOrderSuccess: admin.approveOrder,
 });
 
 const mapDispatchToProps = dispatch => ({
   getAllPosts: () => dispatch(getAllPosts()),
-  approve: id => dispatch(approve(id)),
+  getAllOrders: () => dispatch(getAllOrders()),
+  approvePost: id => dispatch(approvePost(id)),
+  approveOrder: id => dispatch(approveOrder(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);

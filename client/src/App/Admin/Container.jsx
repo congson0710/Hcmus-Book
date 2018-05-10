@@ -9,25 +9,35 @@ class Admin extends React.Component {
     this.state = {
       activeItem: 'posts',
       currentMenu: 'posts',
-      idApprove: '',
+      idPostApprove: '',
+      idOrderApprove: '',
     };
 
     this.handleItemClick = this.handleItemClick.bind(this);
-    this.handleApprove = this.handleApprove.bind(this);
+    this.handleApprovePost = this.handleApprovePost.bind(this);
+    this.handleApproveOrder = this.handleApproveOrder.bind(this);
   }
 
   componentWillMount() {
     this.props.getAllPosts();
+    this.props.getAllOrders();
   }
 
   handleItemClick(event, { name }) {
     this.setState({ activeItem: name, currentMenu: name });
   }
 
-  async handleApprove(id) {
-    this.setState({ idApprove: id });
-    await this.props.approve(id);
+  async handleApprovePost(id) {
+    this.setState({ idPostApprove: id });
+    await this.props.approvePost(id);
     await this.props.getAllPosts();
+    alert('Đã phê duyệt!');
+  }
+
+  async handleApproveOrder(id) {
+    this.setState({ idOrderApprove: id });
+    await this.props.approveOrder(id);
+    await this.props.getAllOrders();
     alert('Đã phê duyệt!');
   }
 
@@ -37,7 +47,8 @@ class Admin extends React.Component {
         {...this.state}
         {...this.props}
         handleItemClick={this.handleItemClick}
-        handleApprove={this.handleApprove}
+        handleApprovePost={this.handleApprovePost}
+        handleApproveOrder={this.handleApproveOrder}
       />
     );
   }

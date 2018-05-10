@@ -5,22 +5,22 @@ import { Dropdown } from 'semantic-ui-react';
 const area = [
   {
     key: 1,
-    value: 'q1',
+    value: 'Quận 1',
     text: 'Quận 1',
   },
   {
     key: 2,
-    value: 'q2',
+    value: 'Quận 2',
     text: 'Quận 2',
   },
   {
     key: 3,
-    value: 'q3',
+    value: 'Quận 3',
     text: 'Quận 3',
   },
   {
     key: 4,
-    value: 'q4',
+    value: 'Quận 4',
     text: 'Quận 4',
   },
 ];

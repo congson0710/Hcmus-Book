@@ -2,11 +2,18 @@ import { Segment, Menu } from 'semantic-ui-react';
 import React from 'react';
 
 import Posts from './Posts';
+import Orders from './Orders';
 
 const Admin = props => {
   const { activeItem, handleItemClick, currentMenu } = props;
   return (
-    <Segment loading={props.allPost.isLoading || props.approvePost.isLoading}>
+    <Segment
+      loading={
+        props.allPost.isLoading ||
+        props.approvePostSuccess.isLoading ||
+        props.approveOrderSuccess.isLoading
+      }
+    >
       <Menu attached="top" tabular>
         <Menu.Item
           name="posts"
@@ -28,7 +35,7 @@ const Admin = props => {
         {currentMenu === 'posts' ? (
           <Posts {...props} />
         ) : currentMenu === 'orders' ? (
-          <h2>List Orders</h2>
+          <Orders {...props} />
         ) : (
           <h2>List User</h2>
         )}
