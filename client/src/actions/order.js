@@ -16,7 +16,6 @@ export const orderBook = orderInfo => async dispatch => {
     orderInfo.currentUser = JSON.parse(sessionStorage.getItem('appUser'));
 
     const response = await axios.post('/api/order-book', orderInfo);
-    console.log('response', response);
     dispatch({
       type: ORDER_SUCCESS,
       payload: response.data,

@@ -10,7 +10,10 @@ const BookCard = props => {
         <Image src={book.bookImage} style={{ height: `240px` }} />
         <Card.Content>
           <Card.Header className="card-header">{book.bookName}</Card.Header>
-          <Card.Description>{book.bookDescription}</Card.Description>
+          <Card.Description>{`${book.bookDescription.substring(
+            0,
+            50
+          )}...`}</Card.Description>
         </Card.Content>
         <Card.Content extra>
           <Icon name="tags" />

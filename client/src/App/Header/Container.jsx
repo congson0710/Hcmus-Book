@@ -11,7 +11,9 @@ class Header extends React.Component {
   }
   componentWillMount() {
     const currentCart = JSON.parse(localStorage.getItem('cart'))
-    this.props.updateCart(currentCart)
+    if(currentCart){
+      this.props.updateCart(currentCart)
+    }
     this.props.loadAuthedData();
   }
 

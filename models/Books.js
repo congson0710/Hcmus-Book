@@ -12,5 +12,5 @@ module.exports = sequelizeConnect.define('books', {
   bookQuantityLeft: { type: Sequelize.INTEGER, allowNull: false },
   bookPrice: { type: Sequelize.FLOAT, allowNull: false },
   bookImage: { type: Sequelize.STRING, allowNull: false },
-  bookDescription: { type: Sequelize.STRING, allowNull: true },
+  bookDescription: { type: Sequelize.STRING, allowNull: false },
 });

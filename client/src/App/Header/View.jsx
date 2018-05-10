@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = props => {
+  console.log(props.appCart.onCart);
   return (
     <div className="header">
       <div className="container">
