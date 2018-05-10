@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = props => {
-  console.log(props.appCart.onCart);
   return (
     <div className="header">
       <div className="container">
@@ -72,35 +71,58 @@ const Header = props => {
           </ul>
 
           {props.loginUser.authenUser ? (
-            <ul className="nav navbar-nav navbar-right">
-              <li className="menu-li">
-                <Link to="/post">
-                  <i className="fa fa-upload" />
-                  <b>ĐĂNG BÁN</b>
-                </Link>
-              </li>
-              <li className="dropdown dropdown-right">
-                <button className="dropbtn">
-                  <i className="fa fa fa-user" aria-hidden="true" />
-                  <b>NGƯỜI DÙNG</b> <b className="caret" />
-                </button>
-                <div className="dropdown-content dropdown-menu-right">
-                  <Link to="/customer" className="right-align">
-                    Thông tin
+            props.loginUser.authenUser.isAdmin ? (
+              <ul className="nav navbar-nav navbar-right">
+                <li className="dropdown dropdown-right">
+                  <button className="dropbtn">
+                    <i className="fa fa fa-user" aria-hidden="true" />
+                    <b>NGƯỜI DÙNG</b> <b className="caret" />
+                  </button>
+                  <div className="dropdown-content dropdown-menu-right">
+                    <Link to="/admin" className="right-align">
+                      Quản lý
+                    </Link>
+                    <a
+                      onClick={props.handleLogout}
+                      className="right-align"
+                      style={{ cursor: `pointer` }}
+                    >
+                      Đăng xuất
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            ) : (
+              <ul className="nav navbar-nav navbar-right">
+                <li className="menu-li">
+                  <Link to="/post">
+                    <i className="fa fa-upload" />
+                    <b>ĐĂNG BÁN</b>
                   </Link>
-                  <Link to="/order/history" className="right-align">
-                    Lịch sử
-                  </Link>
-                  <a
-                    onClick={props.handleLogout}
-                    className="right-align"
-                    style={{ cursor: `pointer` }}
-                  >
-                    Đăng xuất
-                  </a>
-                </div>
-              </li>
-            </ul>
+                </li>
+                <li className="dropdown dropdown-right">
+                  <button className="dropbtn">
+                    <i className="fa fa fa-user" aria-hidden="true" />
+                    <b>NGƯỜI DÙNG</b> <b className="caret" />
+                  </button>
+                  <div className="dropdown-content dropdown-menu-right">
+                    <Link to="/customer" className="right-align">
+                      Thông tin
+                    </Link>
+                    <Link to="/order/history" className="right-align">
+                      Lịch sử
+                    </Link>
+                    <a
+                      onClick={props.handleLogout}
+                      className="right-align"
+                      style={{ cursor: `pointer` }}
+                    >
+                      Đăng xuất
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            )
           ) : (
             <ul className="nav navbar-nav navbar-right">
               <li className="menu-li">

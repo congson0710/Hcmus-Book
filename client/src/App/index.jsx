@@ -26,9 +26,14 @@ const App = props => (
     <Route exact path="/book-detail/:bookID" component={BookDetail} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/category" component={Category} />
-    <Route exact path="/admin" component={Admin} />
-    <Route exact path="/cart" component={Cart}/>
+    <Route exact path="/cart" component={Cart} />
 
+    <RequireLogin
+      authedUser={getCurrentUser()}
+      exact
+      path="/admin"
+      component={Admin}
+    />
     <RequireLogin
       authedUser={getCurrentUser()}
       exact
