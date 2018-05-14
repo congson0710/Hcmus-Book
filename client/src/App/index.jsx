@@ -11,6 +11,7 @@ import OrderHistory from './OrderHistory';
 import Login from './Login';
 import Category from './Category';
 import BookDetail from './BookDetail';
+import PostDetail from './PostDetail';
 import Post from './Post';
 import Admin from './Admin';
 import RequireLogin from '../components/RequireLogin';
@@ -24,6 +25,7 @@ const App = props => (
     <Route exact path="/" component={Home} />
     <Route exact path="/register" component={Register} />
     <Route exact path="/book-detail/:bookID" component={BookDetail} />
+    <Route exact path="/post-detail/:postID" component={PostDetail} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/category" component={Category} />
     <Route exact path="/cart" component={Cart} />

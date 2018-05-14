@@ -46,7 +46,6 @@ export const getDetailPost = id => async dispatch => {
   dispatch({
     type: GET_POST_DETAIL_REQUEST,
   });
-
   const post = {
     id,
   };

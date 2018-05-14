@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const PostCard = props => {
   const { post } = props;
   return (
-    <Link to={`/book-detail/${post.id}`}>
+    <Link to={`/post-detail/${post.id}`}>
       <Card>
         <Image src={post.image} style={{ height: `180px` }} />
         <Card.Content>
