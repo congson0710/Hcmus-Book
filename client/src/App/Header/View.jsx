@@ -109,7 +109,7 @@ const Header = props => {
                     <Link to="/customer" className="right-align">
                       Thông tin
                     </Link>
-                    <Link to="/order/history" className="right-align">
+                    <Link to="/history" className="right-align">
                       Lịch sử
                     </Link>
                     <a

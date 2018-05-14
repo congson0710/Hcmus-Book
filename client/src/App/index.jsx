@@ -7,7 +7,7 @@ import ChangePassword from './ChangePassword';
 import Customer from './Customer';
 import Register from './Register';
 import Order from './Order';
-import OrderHistory from './OrderHistory';
+import History from './History';
 import Login from './Login';
 import Category from './Category';
 import BookDetail from './BookDetail';
@@ -57,8 +57,8 @@ const App = props => (
     <RequireLogin
       authedUser={getCurrentUser()}
       exact
-      path="/order/history"
-      component={OrderHistory}
+      path="/history"
+      component={History}
     />
     <RequireLogin
       authedUser={getCurrentUser()}
