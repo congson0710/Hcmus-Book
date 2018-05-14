@@ -14,6 +14,10 @@ export default class OrderHistory extends React.Component {
     this.handleItemClick = this.handleItemClick.bind(this);
   }
 
+  componentWillMount() {
+    this.props.getUserManagement();
+  }
+
   handleItemClick(e, { name }) {
     this.setState({ activeItem: name, currentMenu: name });
   }
@@ -26,6 +30,7 @@ export default class OrderHistory extends React.Component {
     return (
       <View
         {...this.state}
+        {...this.props}
         handleShowOrderDetail={this.handleShowOrderDetail}
         handleItemClick={this.handleItemClick}
       />

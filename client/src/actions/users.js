@@ -15,6 +15,9 @@ import {
   CHANGE_PASSWORD_REQUEST,
   CHANGE_PASSWORD_SUCCESS,
   CHANGE_PASSWORD_FAIL,
+  GET_USER_MANAGEMENT_REQUEST,
+  GET_USER_MANAGEMENT_SUCCESS,
+  GET_USER_MANAGEMENT_FAIL,
 } from './actions.type';
 
 export const register = registerInfo => async dispatch => {
@@ -124,6 +127,25 @@ export const changePassword = newPassword => async dispatch => {
   } catch (error) {
     dispatch({
       type: CHANGE_PASSWORD_FAIL,
+      payload: error.response.data,
+    });
+  }
+};
+
+export const getUserManagement = () => async dispatch => {
+  dispatch({
+    type: GET_USER_MANAGEMENT_REQUEST,
+  });
+
+  try {
+    const response = await axios.get('/api/user-management');
+    dispatch({
+      type: GET_USER_MANAGEMENT_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_USER_MANAGEMENT_FAIL,
       payload: error.response.data,
     });
   }

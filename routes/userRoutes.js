@@ -3,7 +3,8 @@ const Sequelize = require('sequelize');
 const sequelizeConnect = require('../database/mysqlConfig');
 const Users = require('../models/Users');
 const Posts = require('../models/Posts');
-const Orders = require('../models/Order_Detail');
+const orderDetail = require('../models/Order_Detail');
+const orderHistory = require('../models/Order_History');
 const requireLogin = require('../middlewares/requireLogin');
 
 module.exports = app => {
@@ -23,17 +24,20 @@ module.exports = app => {
       : res.send('Tài khoản hoặc mật khẩu không chính xác');
   });
 
-  // app.get('/api/post-management', requireLogin, async (req, res) => {
-  //   const { userID } = req.user;
-  //   const result = await Posts.findAll({ where: { postBy: userID } });
-  //   res.send(result);
-  // });
+  app.get('/api/user-management', requireLogin, async (req, res) => {
+    const { userID } = req.user;
+    const resultPosts = await Posts.findAll({ where: { postBy: userID } });
+    const resultOrders = await orderHistory.findAll({
+      where: { createBy: userID },
+    });
 
-  // app.get('/api/order-management', requireLogin, async (req, res) => {
-  //   const { userID } = req.user;
-  //   const result = await Orders.findAll({ where: { postBy: userID } });
-  //   res.send(result);
-  // });
+    const result = {
+      posts: resultPosts,
+      orders: resultOrders,
+    };
+
+    res.status(200).send(result);
+  });
 
   app.post('/api/change-user-info', requireLogin, async (req, res) => {
     const { userName, userAddress, phone, gender } = req.body;
