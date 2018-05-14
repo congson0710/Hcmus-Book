@@ -12,6 +12,9 @@ import {
   CHANGE_USER_INFO_REQUEST,
   CHANGE_USER_INFO_SUCCESS,
   CHANGE_USER_INFO_FAIL,
+  CHANGE_PASSWORD_REQUEST,
+  CHANGE_PASSWORD_SUCCESS,
+  CHANGE_PASSWORD_FAIL,
 } from './actions.type';
 
 export const register = registerInfo => async dispatch => {
@@ -94,6 +97,33 @@ export const changeInfo = infoInput => async dispatch => {
   } catch (error) {
     dispatch({
       type: CHANGE_USER_INFO_FAIL,
+      payload: error.response.data,
+    });
+  }
+};
+
+export const changePassword = newPassword => async dispatch => {
+  dispatch({
+    type: CHANGE_PASSWORD_REQUEST,
+  });
+
+  const userNewPassword = {
+    newPassword,
+  };
+
+  try {
+    const response = await axios.post(
+      '/api/change-user-password',
+      userNewPassword
+    );
+
+    dispatch({
+      type: CHANGE_PASSWORD_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: CHANGE_PASSWORD_FAIL,
       payload: error.response.data,
     });
   }

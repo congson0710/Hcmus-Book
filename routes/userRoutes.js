@@ -51,6 +51,20 @@ module.exports = app => {
     res.status(200).send(result);
   });
 
+  app.post('/api/change-user-password', requireLogin, async (req, res) => {
+    const { newPassword } = req.body;
+    const { userID } = req.user;
+
+    const result = await Users.update(
+      {
+        userPassword: newPassword,
+      },
+      { where: { userID } }
+    );
+
+    res.status(200).send(result);
+  });
+
   app.get('/api/logout', (req, res) => {
     req.logout();
     res.send(req.user);

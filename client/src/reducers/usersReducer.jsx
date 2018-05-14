@@ -12,6 +12,9 @@ import {
   CHANGE_USER_INFO_REQUEST,
   CHANGE_USER_INFO_SUCCESS,
   CHANGE_USER_INFO_FAIL,
+  CHANGE_PASSWORD_REQUEST,
+  CHANGE_PASSWORD_SUCCESS,
+  CHANGE_PASSWORD_FAIL,
 } from '../actions/actions.type';
 
 const initialState = {
@@ -31,6 +34,13 @@ const initialState = {
   },
 
   changeUserInfo: {
+    userInfo: {},
+    isLoading: false,
+    isError: false,
+    message: '',
+  },
+
+  changeUserPassword: {
     userInfo: {},
     isLoading: false,
     isError: false,
@@ -173,6 +183,40 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         changeUserInfo: {
           ...state.changeUserInfo,
+          isLoading: false,
+          isError: true,
+          message: action.payload,
+        },
+      };
+    }
+
+    case CHANGE_PASSWORD_REQUEST: {
+      return {
+        ...state,
+        changeUserPassword: {
+          ...state.changeUserPassword,
+          isLoading: true,
+        },
+      };
+    }
+
+    case CHANGE_PASSWORD_SUCCESS: {
+      return {
+        ...state,
+        changeUserPassword: {
+          ...state.changeUserPassword,
+          isLoading: false,
+          isError: false,
+          userInfo: action.payload,
+        },
+      };
+    }
+
+    case CHANGE_PASSWORD_FAIL: {
+      return {
+        ...state,
+        changeUserPassword: {
+          ...state.changeUserPassword,
           isLoading: false,
           isError: true,
           message: action.payload,
