@@ -35,6 +35,22 @@ module.exports = app => {
   //   res.send(result);
   // });
 
+  app.post('/api/change-user-info', requireLogin, async (req, res) => {
+    const { userName, userAddress, phone, gender } = req.body;
+    const { userID } = req.user;
+    const result = await Users.update(
+      {
+        userName,
+        userAddress,
+        gender,
+        phone,
+      },
+      { where: { userID } }
+    );
+
+    res.status(200).send(result);
+  });
+
   app.get('/api/logout', (req, res) => {
     req.logout();
     res.send(req.user);

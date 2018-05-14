@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Dropdown } from 'semantic-ui-react';
+import { Dropdown, Button } from 'semantic-ui-react';
 
 export default class Customer extends React.Component {
   constructor(props) {
@@ -9,85 +9,87 @@ export default class Customer extends React.Component {
     this.state = {
       genderOption: [
         {
-          key: 'nam',
-          value: 'nam',
+          key: '1',
+          value: 'Nam',
           text: 'Nam',
         },
         {
-          key: 'nu',
-          value: 'nu',
+          key: '2',
+          value: 'Nữ',
           text: 'Nữ',
         },
       ],
     };
   }
   render() {
+    const { phone, userName, userAddress, gender } = this.props;
     return (
       <div className="container">
         <div className="col-lg-10 col-lg-offset-1">
           <h4 style={{ paddingTop: `14px` }}> Thông tin khách hàng </h4>
           <hr />
-          <form className="form-horizontal">
+          <div className="form-horizontal">
             <div className="form-group">
-              <label className="col-md-3 control-label" for="phoneNumber">
-                Số điện thoại
-              </label>
+              <label className="col-md-3 control-label">Số điện thoại</label>
               <div className="col-md-6">
                 <input
-                  name="phoneNumber"
-                  value={this.props.loginUser.authenUser.phone}
+                  name="phone"
+                  value={phone}
                   type="text"
                   placeholder=""
                   className="form-control input-md"
                   required=""
+                  onChange={this.props.handleChange}
                 />
               </div>
             </div>
             <div className="form-group">
-              <label className="col-md-3 control-label" for="name">
-                Họ và tên
-              </label>
+              <label className="col-md-3 control-label">Họ và tên</label>
               <div className="col-md-6">
                 <input
-                  name="name"
-                  value={this.props.loginUser.authenUser.userName}
+                  name="userName"
+                  value={userName}
                   type="text"
                   className="form-control input-md"
                   required=""
+                  onChange={this.props.handleChange}
                 />
               </div>
             </div>
             <div className="form-group">
-              <label className="col-md-3 control-label" for="gender">
-                Giới tính
-              </label>
+              <label className="col-md-3 control-label">Giới tính</label>
               <Dropdown
+                name="gender"
                 className="col-md-2"
-                text={this.props.loginUser.authenUser.gender}
+                text={gender}
                 selection
                 options={this.state.genderOption}
                 style={{ marginLeft: `14px` }}
+                onChange={this.props.handleChange}
               />
             </div>
             <div className="form-group">
-              <label className="col-md-3 control-label" forHtml="location">
-                Địa chỉ
-              </label>
+              <label className="col-md-3 control-label">Địa chỉ</label>
               <div className="col-md-6">
                 <textarea
-                  name="location"
+                  name="userAddress"
                   className="form-control input-md"
                   required=""
-                >
-                  {this.props.loginUser.authenUser.userAddress}
-                </textarea>
+                  onChange={this.props.handleChange}
+                  value={userAddress}
+                />
               </div>
             </div>
             <div className="form-group">
               <div style={{ textAlign: `center` }}>
-                <button className="btn btn-info btn-register">
+                <Button
+                  className="btn btn-info btn-register"
+                  color="green"
+                  onClick={this.props.handleChangeUserInfo}
+                  loading={this.props.changeUserInfo.isLoading}
+                >
                   Thay đổi thông tin
-                </button>
+                </Button>
                 <Link
                   className="btn btn-warning btn-register"
                   to="/changepassword"
@@ -96,7 +98,7 @@ export default class Customer extends React.Component {
                 </Link>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     );

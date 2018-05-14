@@ -9,6 +9,9 @@ import {
   LOGOUT_REQUEST,
   LOGOUT_FAIL,
   LOAD_AUTHENTICATION_DATA,
+  CHANGE_USER_INFO_REQUEST,
+  CHANGE_USER_INFO_SUCCESS,
+  CHANGE_USER_INFO_FAIL,
 } from '../actions/actions.type';
 
 const initialState = {
@@ -22,6 +25,13 @@ const initialState = {
   loginUser: {
     authenUser: undefined,
     isLoggedin: false,
+    isLoading: false,
+    isError: false,
+    message: '',
+  },
+
+  changeUserInfo: {
+    userInfo: {},
     isLoading: false,
     isError: false,
     message: '',
@@ -129,6 +139,40 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         loginUser: {
           ...state.loginUser,
+          isLoading: false,
+          isError: true,
+          message: action.payload,
+        },
+      };
+    }
+
+    case CHANGE_USER_INFO_REQUEST: {
+      return {
+        ...state,
+        changeUserInfo: {
+          ...state.changeUserInfo,
+          isLoading: true,
+        },
+      };
+    }
+
+    case CHANGE_USER_INFO_SUCCESS: {
+      return {
+        ...state,
+        changeUserInfo: {
+          ...state.changeUserInfo,
+          isLoading: false,
+          isError: false,
+          userInfo: action.payload,
+        },
+      };
+    }
+
+    case CHANGE_USER_INFO_FAIL: {
+      return {
+        ...state,
+        changeUserInfo: {
+          ...state.changeUserInfo,
           isLoading: false,
           isError: true,
           message: action.payload,
