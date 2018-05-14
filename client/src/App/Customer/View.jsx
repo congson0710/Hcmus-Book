@@ -35,7 +35,7 @@ export default class Customer extends React.Component {
               <div className="col-md-6">
                 <input
                   name="phoneNumber"
-                  value="0908xxxxxx"
+                  value={this.props.loginUser.authenUser.phone}
                   type="text"
                   placeholder=""
                   className="form-control input-md"
@@ -50,7 +50,7 @@ export default class Customer extends React.Component {
               <div className="col-md-6">
                 <input
                   name="name"
-                  value="Trịnh Công Sơn"
+                  value={this.props.loginUser.authenUser.userName}
                   type="text"
                   className="form-control input-md"
                   required=""
@@ -63,7 +63,7 @@ export default class Customer extends React.Component {
               </label>
               <Dropdown
                 className="col-md-2"
-                text="Nam"
+                text={this.props.loginUser.authenUser.gender}
                 selection
                 options={this.state.genderOption}
                 style={{ marginLeft: `14px` }}
@@ -79,7 +79,7 @@ export default class Customer extends React.Component {
                   className="form-control input-md"
                   required=""
                 >
-                  Thành phố Hồ Chí Minh
+                  {this.props.loginUser.authenUser.userAddress}
                 </textarea>
               </div>
             </div>
