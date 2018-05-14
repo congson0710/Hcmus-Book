@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { Button } from 'semantic-ui-react';
 
 import OrderDetail from '../../OrderDetail';
 
@@ -40,21 +41,22 @@ const Order = props => {
                 </h4>
               </td>
               <td className="text-center">
-                <button
-                  onClick={props.handleShowOrderDetail}
+                <Button
+                  onClick={() => props.handleShowOrderDetail(order.orderID)}
                   className="btn btn-info"
+                  color="youtube"
                 >
                   Chi tiết
-                </button>
+                </Button>
               </td>
-              {props.isShowDetail && (
+              {props.isShowDetail === order.orderID && (
                 <div className="mainModal">
                   <div className="contentModal">
-                    <OrderDetail />
+                    <OrderDetail orderID={order.orderID} />
                     <div className="btnCancel">
                       <button
                         className="btn btn-info"
-                        onClick={props.handleShowOrderDetail}
+                        onClick={() => props.handleShowOrderDetail(-1)}
                       >
                         Hủy
                       </button>

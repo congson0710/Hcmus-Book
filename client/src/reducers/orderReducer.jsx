@@ -3,6 +3,9 @@ import {
   ORDER_SUCCESS,
   ORDER_FAIL,
   CONFIRM_ORDER,
+  GET_ORDER_DETAIL_REQUEST,
+  GET_ORDER_DETAIL_SUCCESS,
+  GET_ORDER_DETAIL_FAIL,
 } from '../actions/actions.type';
 
 const initialState = {
@@ -14,6 +17,13 @@ const initialState = {
   },
 
   confirmOrder: {},
+
+  orderDetail: {
+    order: {},
+    isLoading: false,
+    isError: false,
+    message: '',
+  },
 };
 
 const orderReducer = (state = initialState, action) => {
@@ -45,6 +55,40 @@ const orderReducer = (state = initialState, action) => {
         ...state,
         orderSuccess: {
           ...state.orderSuccess,
+          isLoading: false,
+          isError: true,
+          message: action.payload,
+        },
+      };
+    }
+
+    case GET_ORDER_DETAIL_REQUEST: {
+      return {
+        ...state,
+        orderDetail: {
+          ...state.orderDetail,
+          isLoading: true,
+        },
+      };
+    }
+
+    case GET_ORDER_DETAIL_SUCCESS: {
+      return {
+        ...state,
+        orderDetail: {
+          ...state.orderDetail,
+          isLoading: false,
+          isError: false,
+          order: action.payload,
+        },
+      };
+    }
+
+    case GET_ORDER_DETAIL_FAIL: {
+      return {
+        ...state,
+        orderDetail: {
+          ...state.orderDetail,
           isLoading: false,
           isError: true,
           message: action.payload,

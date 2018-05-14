@@ -22,8 +22,8 @@ export default class OrderHistory extends React.Component {
     this.setState({ activeItem: name, currentMenu: name });
   }
 
-  handleShowOrderDetail() {
-    this.setState({ isShowDetail: !this.state.isShowDetail });
+  handleShowOrderDetail(id) {
+    this.setState({ isShowDetail: id });
   }
 
   render() {

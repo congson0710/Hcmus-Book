@@ -5,7 +5,6 @@ const Books = require('../models/Books');
 
 module.exports = app => {
   app.post('/api/order-book', requireLogin, async (req, res) => {
-    console.log(req.body);
     const { currentCart, currentUser, totalPayment, area } = req.body;
     const resultOrder = await orderHistory.create({
       date: Date.now(),
@@ -40,5 +39,27 @@ module.exports = app => {
     };
 
     res.status(200).send(createdOrder);
+  });
+
+  app.post('/api/order-detail', requireLogin, async (req, res) => {
+    console.log(req.body);
+    const { id } = req.body;
+    const listBook = await orderDetail.findAll({ where: { orderID: id } });
+
+    const listBookInfo = await Promise.all(
+      listBook.map(async book => {
+        const bookDetail = await Books.findById(book.bookID);
+
+        return {
+          bookID: book.bookID,
+          bookName: bookDetail.bookName,
+          bookImage: bookDetail.bookImage,
+          bookPrice: bookDetail.bookPrice,
+          quantityOrder: book.quantityOrder,
+        };
+      })
+    );
+
+    res.status(200).send(listBookInfo);
   });
 };
