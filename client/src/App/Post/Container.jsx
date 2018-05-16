@@ -35,8 +35,11 @@ class Post extends React.Component {
   }
 
   // post go here
-  handleUpload() {
-    this.props.upload(this.state);
+  async handleUpload() {
+    await this.props.upload(this.state);
+    return this.props.createPost.isError
+      ? alert('Đăng bán không thành công')
+      : alert('Đăng bán thành công');
   }
 
   handleUploadStart() {

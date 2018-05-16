@@ -30,7 +30,7 @@ const Post = props => {
     <div class="container">
       <h2 style={{ paddingTop: `14px` }}> Đăng bán </h2>
       <hr />
-      <Segment style={{ margin: `48px` }}>
+      <Segment style={{ margin: `48px` }} loading={props.createPost.isLoading}>
         <Grid>
           <Grid.Row>
             <Grid.Column style={{ marginLeft: `12px`, width: `100%` }}>

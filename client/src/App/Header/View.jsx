@@ -8,7 +8,7 @@ const Header = props => {
         <div className="navbar-search">
           <div className="col-lg-2">
             <Link to="/" style={{ textDecoration: `none` }}>
-              <p className="header-logo"> HCMUSach </p>
+              <p className="header-logo"> eBook </p>
             </Link>
           </div>
           <div className="col-lg-8">
