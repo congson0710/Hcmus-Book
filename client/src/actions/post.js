@@ -29,7 +29,6 @@ export const upload = infoInput => async dispatch => {
 
   try {
     const response = await axios.post('/api/upload', post);
-    console.log(response);
     dispatch({
       type: POST_SUCCESS,
       payload: response.data,

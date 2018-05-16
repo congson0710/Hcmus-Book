@@ -14,7 +14,12 @@ const Detail = props => {
                 <img
                   src={post.image}
                   className="img-responsive center-block wine-img-style"
-                  style={{ maxHeight: `400px`, margin: `0 auto` }}
+                  style={{
+                    maxHeight: `400px`,
+                    margin: `0 auto`,
+                    height: `100%`,
+                    width: `100%`,
+                  }}
                   alt="poster"
                 />
               </Segment>

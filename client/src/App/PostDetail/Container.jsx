@@ -4,8 +4,11 @@ import View from './View';
 
 class PostDetail extends React.Component {
   componentWillMount() {
-    console.log(this.props.match.params.postID);
-    this.props.getDetailPost(this.props.match.params.postID);
+    if (this.props.id) {
+      this.props.getDetailPost(this.props.id);
+    } else {
+      this.props.getDetailPost(this.props.match.params.postID);
+    }
   }
 
   render() {

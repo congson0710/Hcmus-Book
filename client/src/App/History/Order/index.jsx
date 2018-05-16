@@ -42,7 +42,7 @@ const Order = props => {
               </td>
               <td className="text-center">
                 <Button
-                  onClick={() => props.handleShowOrderDetail(order.orderID)}
+                  onClick={() => props.handleShowDetail(order.orderID)}
                   className="btn btn-info"
                   color="youtube"
                 >
@@ -60,7 +60,7 @@ const Order = props => {
                     <div className="btnCancel">
                       <button
                         className="btn btn-info"
-                        onClick={() => props.handleShowOrderDetail(-1)}
+                        onClick={() => props.handleShowDetail(-1)}
                       >
                         Hủy
                       </button>

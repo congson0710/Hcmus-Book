@@ -1,94 +1,69 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
+
+import PostDetail from '../../PostDetail';
 
 const Post = props => {
+  const { posts } = props.userManagement;
   return (
     <div>
       <h4 style={{ paddingTop: `14px` }}>
-        <b>Lịch sử đơn hàng </b>
+        <b>Lịch sử bài đăng </b>
       </h4>
-      <hr />
       <table className="table table-hover table-bordered">
         <thead>
           <tr>
-            <th className="col-lg-3 text-center">Mã đơn hàng</th>
-            <th className="col-lg-3 text-center">Ngày tạo</th>
+            <th className="col-lg-3 text-center">Mã bài đăng</th>
+            <th className="col-lg-3 text-center">Tiêu đề</th>
             <th className="col-lg-3 text-center">Tình trạng</th>
             <th className="col-lg-3 text-center"> </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="text-center">
-              <h4>003</h4>
-            </td>
-            <td className="text-center">
-              <h4>29/11/2018</h4>
-            </td>
-            <td className="text-center">
-              <h4 className="text-success">Đã giao hàng</h4>
-            </td>
-            <td className="text-center">
-              <button
-                onClick={props.handleShowOrderDetail}
-                className="btn btn-info"
-              >
-                Chi tiết
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className="text-center">
-              <h4>002</h4>
-            </td>
-            <td className="text-center">
-              <h4>28/11/2018</h4>
-            </td>
-            <td className="text-center">
-              <h4 className="text-info">Đang giao hàng</h4>
-            </td>
-            <td className="text-center">
-              <button
-                onClick={props.handleShowOrderDetail}
-                className="btn btn-info"
-              >
-                Chi tiết
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className="text-center">
-              <h4>001</h4>
-            </td>
-            <td className="text-center">
-              <h4>27/11/2018</h4>
-            </td>
-            <td className="text-center">
-              <h4 className="text-danger">Đã hủy đơn hàng</h4>
-            </td>
-            <td className="text-center">
-              <button
-                onClick={props.handleShowOrderDetail}
-                className="btn btn-info"
-              >
-                Chi tiết
-              </button>
-            </td>
-            {/* {props.isShowDetail && (
-              <div className="mainModal">
-                <div className="contentModal">
-                  <OrderDetail />
-                  <div className="btnCancel">
-                    <button
-                      className="btn btn-info"
-                      onClick={props.handleShowOrderDetail}
-                    >
-                      Hủy
-                    </button>
+          {posts.map(post => {
+            return (
+              <tr key={Math.random()}>
+                <td className="text-center">
+                  <h4>{post.id}</h4>
+                </td>
+                <td className="text-center">
+                  <h4>{post.title}</h4>
+                </td>
+                <td className="text-center">
+                  <h4
+                    className={
+                      post.status === 'PENDING' ? 'text-danger' : 'text-success'
+                    }
+                  >
+                    {post.status === 'PENDING' ? 'Chưa duyệt' : 'Đã duyệt'}
+                  </h4>
+                </td>
+                <td className="text-center">
+                  <button
+                    onClick={() => props.handleShowDetail(post.id)}
+                    className="btn btn-info"
+                  >
+                    Chi tiết
+                  </button>
+                </td>
+                {props.isShowDetail === post.id && (
+                  <div className="mainModal">
+                    <div className="contentModal">
+                      <PostDetail id={post.id} />
+                      <div className="btnCancel">
+                        <Button
+                          className="btn btn-info"
+                          onClick={() => props.handleShowDetail(-1)}
+                        >
+                          Hủy
+                        </Button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            )} */}
-          </tr>
+                )}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

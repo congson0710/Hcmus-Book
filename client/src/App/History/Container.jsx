@@ -10,7 +10,7 @@ export default class OrderHistory extends React.Component {
       currentMenu: 'order',
       isShowDetail: false,
     };
-    this.handleShowOrderDetail = this.handleShowOrderDetail.bind(this);
+    this.handleShowDetail = this.handleShowDetail.bind(this);
     this.handleItemClick = this.handleItemClick.bind(this);
   }
 
@@ -22,7 +22,7 @@ export default class OrderHistory extends React.Component {
     this.setState({ activeItem: name, currentMenu: name });
   }
 
-  handleShowOrderDetail(id) {
+  handleShowDetail(id) {
     this.setState({ isShowDetail: id });
   }
 
@@ -31,7 +31,7 @@ export default class OrderHistory extends React.Component {
       <View
         {...this.state}
         {...this.props}
-        handleShowOrderDetail={this.handleShowOrderDetail}
+        handleShowDetail={this.handleShowDetail}
         handleItemClick={this.handleItemClick}
       />
     );

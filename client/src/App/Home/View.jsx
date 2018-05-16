@@ -32,13 +32,6 @@ const Home = props => {
           <div>
             <img
               className="img-responsive"
-              src="https://i.ytimg.com/vi/EP9q90zL6fg/maxresdefault.jpg"
-              alt="doan"
-            />
-          </div>
-          <div>
-            <img
-              className="img-responsive"
               src="http://thumbnails.cbsig.net/CBS_Production_Simon_and_Schuster_VMS/386/43/119c15e9-92e5-44f2-8a6d-5923adb5411e_1506607772457_HighRes.png"
               alt="doan"
             />
