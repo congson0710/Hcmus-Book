@@ -19,7 +19,7 @@ const initialState = {
   confirmOrder: {},
 
   orderDetail: {
-    order: {},
+    order: [],
     isLoading: false,
     isError: false,
     message: '',

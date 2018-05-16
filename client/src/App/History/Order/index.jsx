@@ -52,7 +52,11 @@ const Order = props => {
               {props.isShowDetail === order.orderID && (
                 <div className="mainModal">
                   <div className="contentModal">
-                    <OrderDetail orderID={order.orderID} />
+                    <OrderDetail
+                      orderID={order.orderID}
+                      totalPayment={order.totalPayment}
+                      area={order.area}
+                    />
                     <div className="btnCancel">
                       <button
                         className="btn btn-info"

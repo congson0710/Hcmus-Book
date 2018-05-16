@@ -1,6 +1,7 @@
 import React from 'react';
 
 const OrderDetail = props => {
+  console.log(props.orderDetail);
   return (
     <div className="container">
       <div className="row">
@@ -19,90 +20,50 @@ const OrderDetail = props => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="col-md-5">
-                  <div className="media">
-                    <a className="pull-left" href="#">
-                      <img
-                        className="media-object"
-                        src="http://placehold.it/250x200"
-                        style={{ width: `100px`, height: `80px` }}
-                        alt="img"
-                      />
-                    </a>
-                    <div className="media-body">
-                      <h4 className="media-heading cart-text-padding-top">
-                        <a href="#">Tên sách</a>
-                      </h4>
-                    </div>
-                  </div>
-                </td>
-                <td className="col-md-1" style={{ textAlign: `center` }}>
-                  3
-                </td>
-                <td className="col-md-1 text-center">
-                  <p className="cart-text-padding-top">
-                    <b>$4.87</b>
-                  </p>
-                </td>
-                <td className="col-md-2 text-center" id="priceFood">
-                  <p className="cart-text-padding-top">
-                    <b>$14.61</b>
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td className="col-md-5">
-                  <div className="media">
-                    <a className="pull-left" href="#">
-                      <img
-                        className="media-object"
-                        src="http://placehold.it/250x200"
-                        style={{ width: `100px`, height: `80px` }}
-                        alt="img"
-                      />
-                    </a>
-                    <div className="media-body">
-                      <h4 className="media-heading cart-text-padding-top">
-                        Tên sách
-                      </h4>
-                    </div>
-                  </div>
-                </td>
-                <td className="col-md-1" style={{ textAlign: `center` }}>
-                  2
-                </td>
-                <td className="col-md-1 text-center">
-                  <p className="cart-text-padding-top">
-                    <b>$4.99</b>
-                  </p>
-                </td>
-                <td className="col-md-2 text-center">
-                  <p className="cart-text-padding-top">
-                    <b>$9.98</b>
-                  </p>
-                </td>
-              </tr>
+              {props.orderDetail.order.map(book => {
+                return (
+                  <tr key={Math.random()}>
+                    <td className="col-md-5">
+                      <div className="media">
+                        <a className="pull-left" href="#">
+                          <img
+                            className="media-object"
+                            src={book.bookImage}
+                            style={{ width: `100px`, height: `80px` }}
+                            alt="img"
+                          />
+                        </a>
+                        <div className="media-body">
+                          <h4 className="media-heading cart-text-padding-top">
+                            <p>{book.bookName}</p>
+                          </h4>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="col-md-1" style={{ textAlign: `center` }}>
+                      {book.quantityOrder}
+                    </td>
+                    <td className="col-md-1 text-center">
+                      <p className="cart-text-padding-top">
+                        <b>{book.bookPrice}</b>
+                      </p>
+                    </td>
+                    <td className="col-md-2 text-center" id="priceFood">
+                      <p className="cart-text-padding-top">
+                        <b>{book.quantityOrder * book.bookPrice}</b>
+                      </p>
+                    </td>
+                  </tr>
+                );
+              })}
               <tr>
                 <td colSpan="1">
                   <h4 className="pull-left">
-                    <b>Chọn khu vực</b>
+                    <b>Khu vực</b>
                   </h4>
                 </td>
-                <td colSpan="2">Quận 1</td>
+                <td colSpan="2">{props.area}</td>
                 <td />
-              </tr>
-              <tr>
-                <td colSpan="3">
-                  <h4>
-                    <b>Tạm tính</b>
-                  </h4>
-                </td>
-                <td className="text-center">
-                  <h5>
-                    <strong>$24.59</strong>
-                  </h5>
-                </td>
               </tr>
               <tr>
                 <td colSpan="3">
@@ -112,7 +73,9 @@ const OrderDetail = props => {
                 </td>
                 <td className="text-center">
                   <h5>
-                    <strong>$6.94</strong>
+                    <strong>
+                      {props.area === 'Quận 1' ? 'Free' : '30000'}
+                    </strong>
                   </h5>
                 </td>
               </tr>
@@ -124,7 +87,7 @@ const OrderDetail = props => {
                 </td>
                 <td className="text-center">
                   <h4>
-                    <strong>$31.53</strong>
+                    <strong>{props.totalPayment}</strong>
                   </h4>
                 </td>
               </tr>
