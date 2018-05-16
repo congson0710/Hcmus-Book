@@ -12,29 +12,25 @@ const Header = props => {
             </Link>
           </div>
           <div className="col-lg-8">
-            <form
-              className="navbar-form"
-              role="search"
-              style={{ marginLeft: `28px` }}
-            >
+            <div className="navbar-form" style={{ marginLeft: `28px` }}>
               <div className="input-group col-md-12">
                 <input
                   type="text"
                   className="form-control"
                   placeholder="Tìm kiếm nhanh..."
-                  name="q"
+                  name="search"
+                  onChange={props.handleOnchange}
                 />
                 <div className="input-group-btn">
                   <button
-                    id="btn-search"
                     className="btn btn-default flat-butt"
-                    type="submit"
+                    onClick={props.handleSearch}
                   >
                     Tìm kiếm
                   </button>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
           <div className="col-lg-2">
             <div className="header-cart">

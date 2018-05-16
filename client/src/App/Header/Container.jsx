@@ -7,14 +7,29 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      search: '',
+    };
+
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleOnchange = this.handleOnchange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
   componentWillMount() {
-    const currentCart = JSON.parse(localStorage.getItem('cart'))
-    if(currentCart){
-      this.props.updateCart(currentCart)
+    const currentCart = JSON.parse(localStorage.getItem('cart'));
+    if (currentCart) {
+      this.props.updateCart(currentCart);
     }
     this.props.loadAuthedData();
+  }
+
+  handleOnchange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
+  handleSearch() {
+    this.props.search(this.state.search);
   }
 
   async handleLogout() {
@@ -23,7 +38,14 @@ class Header extends React.Component {
     alert('Logout Successfully!!');
   }
   render() {
-    return <View {...this.props} handleLogout={this.handleLogout} />;
+    return (
+      <View
+        {...this.props}
+        handleLogout={this.handleLogout}
+        handleOnchange={this.handleOnchange}
+        handleSearch={this.handleSearch}
+      />
+    );
   }
 }
 

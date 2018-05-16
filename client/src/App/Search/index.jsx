@@ -1,3 +1,9 @@
+import { connect } from 'react-redux';
+
 import Search from './Container';
 
-export default Search;
+const mapStateToProps = ({ search }) => ({
+  searchResult: search.searchResult,
+});
+
+export default connect(mapStateToProps, null)(Search);
