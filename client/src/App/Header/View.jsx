@@ -22,12 +22,14 @@ const Header = props => {
                   onChange={props.handleOnchange}
                 />
                 <div className="input-group-btn">
-                  <button
-                    className="btn btn-default flat-butt"
-                    onClick={props.handleSearch}
-                  >
-                    Tìm kiếm
-                  </button>
+                  <Link to="/search">
+                    <button
+                      className="btn btn-default flat-butt"
+                      onClick={props.handleSearch}
+                    >
+                      Tìm kiếm
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

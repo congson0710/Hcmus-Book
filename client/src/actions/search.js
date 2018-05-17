@@ -8,8 +8,7 @@ export const search = content => async dispatch => {
   });
 
   try {
-    const response = axios.get(`/api/search?search=${content}`);
-
+    const response = await axios.get(`/api/search?search=${content}`);
     dispatch({
       type: SEARCH_SUCCESS,
       payload: response.data,
