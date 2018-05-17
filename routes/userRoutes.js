@@ -9,10 +9,25 @@ const requireLogin = require('../middlewares/requireLogin');
 
 module.exports = app => {
   app.post('/api/register', (req, res) => {
-    const { userName, userAccount, userPassword, address, gender } = req.body;
+    const {
+      userName,
+      userAccount,
+      userPassword,
+      address,
+      gender,
+      phone,
+    } = req.body;
     Users.findOrCreate({
       where: { userAccount },
-      defaults: { userName, userPassword, userAddress: address, gender },
+      defaults: {
+        userName,
+        userPassword,
+        userAddress: address,
+        gender,
+        phone,
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+      },
     }).spread((user, created) => {
       created ? res.send(user) : res.status(401).send('Register Fail!!!');
     });

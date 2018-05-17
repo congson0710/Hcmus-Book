@@ -103,6 +103,7 @@ const Register = props => {
                 <Form.Dropdown
                   label="Giới tính"
                   name="gender"
+                  placeholder="Giới tính..."
                   selection
                   options={genderOption}
                   onChange={props.handleOnSelect}
@@ -111,6 +112,22 @@ const Register = props => {
                     isDefaultRequiredValue: 'Can not be empty',
                   }}
                   errorLabel={errorLabel}
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="col-md-6 col-md-offset-3">
+                <Form.Input
+                  label="Số điện thoại"
+                  name="phone"
+                  type="text"
+                  placeholder="Số điện thoại..."
+                  required
+                  validationErrors={{
+                    isDefaultRequiredValue: 'Can not be empty',
+                  }}
+                  errorLabel={errorLabel}
+                  onChange={props.handleOnChange}
                 />
               </div>
             </div>

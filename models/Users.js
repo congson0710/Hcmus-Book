@@ -15,4 +15,6 @@ module.exports = sequelizeConnect.define('users', {
   gender: { type: Sequelize.STRING, allowNull: false },
   phone: { type: Sequelize.STRING, allowNull: false },
   isAdmin: { type: Sequelize.TINYINT, allowNull: true },
+  createdAt: { type: Sequelize.DATE, allowNull: false, default: Date.now() },
+  updatedAt: { type: Sequelize.DATE, allowNull: false, default: Date.now() },
 });
