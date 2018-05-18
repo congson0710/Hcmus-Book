@@ -1,5 +1,7 @@
-module.exports = {
-  mongoKey:
-    'mongodb://congson0710:081196Son@ds021979.mlab.com:21979/hcmusach-dev',
-  cookieKey: 'asdadkaljshfkl23489298uasdasd',
-};
+if (process.env.NODE_ENV === 'production') {
+  // export production set of keys
+  module.exports = require('./prod');
+} else {
+  // export development set of keys
+  module.exports = require('./dev');
+}

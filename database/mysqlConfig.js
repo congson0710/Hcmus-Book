@@ -1,19 +1,26 @@
 const Sequelize = require('sequelize');
 
-module.exports = new Sequelize('hcmus-book', 'root', '123456', {
-  host: '127.0.0.1',
-  port: '8000',
-  dialect: 'mysql',
-  define: {
-    timestamps: false,
-    freezeTableName: true,
-  },
-  operatorsAliases: false,
+const keys = require('../config/key');
 
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000,
-  },
-});
+module.exports = new Sequelize(
+  keys.database.name,
+  keys.database.user,
+  keys.database.password,
+  {
+    host: keys.database.host,
+    port: keys.database.port,
+    dialect: 'mysql',
+    define: {
+      timestamps: false,
+      freezeTableName: true,
+    },
+    operatorsAliases: false,
+
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000,
+    },
+  }
+);
