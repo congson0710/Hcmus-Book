@@ -2,6 +2,8 @@ const Sequelize = require('sequelize');
 
 const keys = require('../config/key');
 
+console.log(keys);
+
 module.exports = new Sequelize(
   keys.databaseName,
   keys.databaseUser,
