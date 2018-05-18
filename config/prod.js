@@ -1,10 +1,8 @@
 module.exports = {
   cookieKey: process.env.COOKIE_KEY,
-  database: {
-    name: process.env.DATABASE_NAME,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    host: process.env.DATABASE_HOST,
-    port: process.env.DATABASE_PORT,
-  },
+  databaseName: process.env.DATABASE_NAME,
+  databaseUser: process.env.DATABASE_USER,
+  databasePassword: process.env.DATABASE_PASSWORD,
+  databaseHost: process.env.DATABASE_HOST,
+  databasePort: process.env.DATABASE_PORT,
 };

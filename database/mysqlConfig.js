@@ -3,12 +3,12 @@ const Sequelize = require('sequelize');
 const keys = require('../config/key');
 
 module.exports = new Sequelize(
-  keys.database.name,
-  keys.database.user,
-  keys.database.password,
+  keys.databaseName,
+  keys.databaseUser,
+  keys.databasePassword,
   {
-    host: keys.database.host,
-    port: keys.database.port,
+    host: keys.databaseHost,
+    port: keys.databasePort,
     dialect: 'mysql',
     define: {
       timestamps: false,
